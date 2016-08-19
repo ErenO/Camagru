@@ -1,0 +1,40 @@
+.input_connexion
+{
+	border-radiu:12px;
+}
+body
+{
+	/*background-image: url("paysage.jpeg");*/
+	background-color: #cccccc;
+	/*font-family: Impact, "Arial Black", Arial, Verdana, sans-serif;*/
+	font-family: 'Arial Black', Gadget, sans-serif;
+	font-size: small;
+	/*background-color: #FFFFFF;*/
+	color: #000000;
+	margin-top: 0px;
+}
+
+#div_connexion
+{
+	margin:auto;
+	margin-top : 100px;
+	width:400px;
+	border : 3px solid black;
+	border-radius : 12px;
+}
+
+input[type=submit]
+{
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 10px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 12px;
+	border : 1px solid black;
+}
