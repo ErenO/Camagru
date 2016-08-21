@@ -1,55 +1,48 @@
-<!-- <?php
-	// session_start();
-	// include "setup.php"
-
-
-?> -->
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta content="stuff, to, help, search, engines, not" name="keywords">
-<meta content="What this page is about." name="description">
-<meta content="Display Webcam Stream" name="title">
-<title>Display Webcam Stream</title>
+	<head>
+	<meta charset="utf-8">
+	<meta content="stuff, to, help, search, engines, not" name="keywords">
+	<meta content="What this page is about." name="description">
+	<meta content="Display Webcam Stream" name="title">
+	<title>camagru</title>
 
-<style>
-#container {
-   margin: 0px auto;
-   width: 500px;
-   height: 375px;
-   border: 10px #333 solid;
-}
-#videoElement {
-   width: 500px;
-   height: 375px;
-   background-color: #666;
-}
-</style>
-</head>
+	</head>
 
-<body>
-<div id="container">
-   <video autoplay="true" id="videoElement">
+	<body>
+		<video id="video" width="640" height="480" autoplay></video>
+		<button id="snapButton">Snap Photo</button>
+		<canvas id="canvas" width="640" height="480"></canvas>
+		<script>
+			var video = document.getElementById('video');
 
-   </video>
-</div>
-<script>
-var video = document.querySelector("#videoElement");
+			if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+				navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+					video.src = window.URL.createObjectURL(stream);
+					video.play();
+				});
+			}
+			else if(navigator.getUserMedia) {
+				navigator.getUserMedia({ video: true }, function(stream) {
+					video.src = stream;
+					video.play();
+				}, errBack);
+			} else if(navigator.webkitGetUserMedia) {
+				navigator.webkitGetUserMedia({ video: true }, function(stream){
+					video.src = window.webkitURL.createObjectURL(stream);
+					video.play();
+				}, errBack);
+			} else if(navigator.mozGetUserMedia) {
+				navigator.mozGetUserMedia({ video: true }, function(stream){
+					video.src = window.URL.createObjectURL(stream);
+					video.play();
+				}, errBack);
+			}
+			var context = canvas.getContext('2d');
 
-navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
-
-if (navigator.getUserMedia) {
-   navigator.getUserMedia({video: true, audio: false}, handleVideo, videoError);
-}
-
-function handleVideo(stream) {
-   video.src = window.URL.createObjectURL(stream);
-}
-
-function videoError(e) {
-   // do something
-}
-</script>
-</body>
+			document.getElementById("snapButton").addEventListener("click", function() {
+				context.drawImage(video, 0, 0, 640, 480);
+			});
+		</script>
+	</body>
 </html>

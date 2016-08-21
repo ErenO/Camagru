@@ -61,7 +61,7 @@
 				}
 				?>
 			</div>
-			<a href="cam.html">Prendre une photo ?</a>
+			<a href="cam.php">Prendre une photo ?</a>
 		</body>
 	</html>
 	<?php
