@@ -1,0 +1,49 @@
+#div_edit
+{
+	border : 3px solid black;
+	width : 600px;
+	height : 400px;
+	border-radius : 12px;
+}
+
+
+body
+{
+	/*background-image: url("paysage.jpeg");*/
+	background-color: #cccccc;
+	/*font-family: Impact, "Arial Black", Arial, Verdana, sans-serif;*/
+	font-family: 'Arial Black', Gadget, sans-serif;
+	font-size: small;
+	/*background-color: #FFFFFF;*/
+	color: #000000;
+	/*margin-top: 0px;*/
+}
+
+#input_edit
+{
+	border-radius: 5px;
+	width : 200px;
+	height: 20px;
+}
+
+
+input[type=text] input[type=email] input[type=password]
+{
+
+}
+
+input[type=submit]
+{
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 10px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	/*margin: 4px 2px;*/
+	cursor: pointer;
+	border-radius: 12px;
+	border : 1px solid black;
+}

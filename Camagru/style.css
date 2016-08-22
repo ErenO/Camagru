@@ -1,0 +1,67 @@
+#inscription_div
+{
+	border-radius:20px;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	/*box-shadow: 8px 8px 0px #101010;*/
+	/*align: center;*/
+	margin-top:20em;
+	width: 500px;
+	height: 350px;
+	background-color: #cccccc;
+	border : 3px solid black;
+	/*line-height: 5em;*/
+}
+
+.redirection_connection
+{
+	float:right;
+	display:block;
+	margin-top: 10px;
+}
+/*
+#inscription_text
+{
+	padding-top:20px;
+}*/
+
+/*#submit*/
+/*{*/
+
+/*}*/
+
+.input_inscription
+{
+	border-radius: 5px;
+	width : 200px;
+	height: 20px;
+}
+
+input[type=submit]
+{
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 10px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 12px;
+	border : 1px solid black;
+}
+
+body
+{
+	/*background-image: url("paysage.jpeg");*/
+	background-color: #cccccc;
+	/*font-family: Impact, "Arial Black", Arial, Verdana, sans-serif;*/
+	font-family: 'Arial Black', Gadget, sans-serif;
+	font-size: small;
+	/*background-color: #FFFFFF;*/
+	color: #000000;
+	margin-top: 0px;
+}
