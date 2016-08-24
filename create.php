@@ -33,7 +33,7 @@
 									$key .= mt_rand(0, 9);
 								}
 								$insertmbr = $pdo->prepare("INSERT INTO membres(pseudo, mail, motdepasse, confirmkey, avatar) VALUES(?, ?, ?, ?, ?)");
-								$insertmbr->execute(array($pseudo, $mail, $mdp, $key, "gordon.jpg"));
+								$insertmbr->execute(array($pseudo, $mail, $mdp, $key, "mario.png"));
 								send_mail($mail, $key, $pseudo);
 								$_SESSION['erreur'] = "Votre compte a bien été créé ! <a href=\"connexion.php\">Me connecter</a>";
 							}
