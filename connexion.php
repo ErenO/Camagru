@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 include "setup.php";
 
 if (isset($_POST['formconnexion']))
@@ -16,7 +15,7 @@ if (isset($_POST['formconnexion']))
 			$_SESSION['id'] = $userinfo['id'];
 			$_SESSION['pseudo'] = $userinfo['pseudo'];
 			$_SESSION['mail'] = $userinfo['mail'];
-			header("Location: profil.php?id=".$_SESSION['id']);
+			header("Location: cam.php?id=".$_SESSION['id']);
 		}
 		else
 		{
@@ -32,7 +31,7 @@ if (isset($_POST['formconnexion']))
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="connexion.css" />
+		<link rel="stylesheet" href="CSS/connexion.css" />
 		<title>Le projet Camagru</title>
 	</head>
 	<body>

@@ -5,11 +5,10 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="CSS/style.css" />
 		<title>Le projet Camagru</title>
 	</head>
 	<body>
-		<!-- <img id="paysage" src="paysage.jpeg" /> -->
 	<a href="connexion.php">Déjà un compte ?</a>
 		<div id="inscription_div" align="center">
 			<h2 id="inscription_text">Inscription</h2>
@@ -68,6 +67,7 @@
 			<?php
 			if (isset($_SESSION['erreur'])) {
 				echo '<font color="red">'.$_SESSION['erreur']."</font>";
+				$_SESSION['erreur'] = '';
 			}
 			?>
 		</div>

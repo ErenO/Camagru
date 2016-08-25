@@ -76,7 +76,7 @@
 	<html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="edit.css" />
+		<link rel="stylesheet" href="CSS/edit.css" />
 		<title>Le projet Camagru</title>
 	</head>
 	<body>

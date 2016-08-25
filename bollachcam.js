@@ -15,6 +15,7 @@ filternames["1"] = "TOD champignon";
 // filternames["8"] = "Unicorn";
 // filternames["9"] = "Chimpokomon";
 window.addEventListener("DOMContentLoaded", function() {
+		alert('hello');
 	var canvas = document.getElementById("canvas"),
 		context = canvas.getContext("2d"),
 		video = document.getElementById("video"),
@@ -61,7 +62,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		img = 0;
 		document.getElementById("upload").value = "";
 	});
-}
+
 	document.getElementById("video").addEventListener("click", function() {
 		numerofiltre++;
 		if (numerofiltre >= 10)
@@ -78,14 +79,14 @@ window.addEventListener("DOMContentLoaded", function() {
 		document.getElementById("png").value = "../filtres/" + numerofiltre + ".png";
 		document.getElementById("nomfiltre").innerHTML = filternames[numerofiltre];
 	});
-	document.getElementById("canvas").addEventListener("click", function() {
-		numerofiltre++;
-		if (numerofiltre >= 10)
-			numerofiltre = 1;
-		document.getElementById("filtre").src = "filtres/" + numerofiltre + ".png";
-		document.getElementById("png").value = "../filtres/" + numerofiltre + ".png";
-		document.getElementById("nomfiltre").innerHTML = filternames[numerofiltre];
-	});
+	// document.getElementById("canvas").addEventListener("click", function() {
+	// 	// numerofiltre++;
+	// 	// if (numerofiltre >= 10)
+	// 	// 	numerofiltre = 1;
+	// 	document.getElementById("filtre").src = "filtres/" + numerofiltre + ".png";
+	// 	document.getElementById("png").value = "../filtres/" + numerofiltre + ".png";
+	// 	document.getElementById("nomfiltre").innerHTML = filternames[numerofiltre];
+	// });
 	document.getElementById("upload").onchange = function() {
 		var fileInput = document.getElementById("upload");
 		var reader  = new FileReader();
@@ -121,7 +122,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
 function masquer(id)
 {
-   document.getElementById(id).style.display = 'none';
+  	document.getElementById(id).style.display = 'none';
 }
 
 function afficher(id)
@@ -131,6 +132,7 @@ function afficher(id)
 
 function postthat() {
 
+	alert('hello');
 	var	params = [];
 	img = canvas.toDataURL("image/png");
 	params["titre"] = document.getElementById('title').value;
@@ -141,7 +143,7 @@ function postthat() {
 	method = "post";
 	var form = document.createElement("form");
 	form.setAttribute("method", method);
-	form.setAttribute("action", "post.php");
+	form.setAttribute("action", "./post.php");
 
 	for(var key in params) {
 		if(params.hasOwnProperty(key)) {
@@ -155,3 +157,8 @@ function postthat() {
 	document.body.appendChild(form);
 	form.submit();
 }
+//
+// $cle = md5(microtime(TRUE)*100000);
+//
+//
+// $message = "Hello. To authenticate your email click <a href='http://localhost:8080/Camagru/User/creation/validated.php?user_id=".$_POST['email']."&cle=".$cle."'>this link.</a>";
