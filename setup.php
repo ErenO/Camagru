@@ -46,6 +46,24 @@ catch (PDOException $e)
 	echo '<br/>Erreur creation table <br/>';
 }
 
+try
+{
+	$pdo->exec("CREATE TABLE IF NOT EXISTS `post` (
+		`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		`pseudo` TEXT NOT NULL,
+		`titre` TEXT,
+		`lieu` TEXT,
+		`email` TEXT NOT NULL,
+		`liked` INT,
+		`image` LONGBLOB NOT NULL,
+		`date_editer` TIMESTAMP)");
+}
+catch (PDOException $e)
+{
+	echo $e;
+	echo '<br/>Erreur creation table <br/>';
+}
+
 // try
 // {
 // 	$pdo->query("INSERT INTO membres(confirm) VALUES (0)");
@@ -92,15 +110,15 @@ catch (PDOException $e)
 // 		`validated` INT ,
 // 		`avatar` LONGBLOB ,
 // 		`country` TEXT)");
-// 	$pdo->exec("CREATE TABLE IF NOT EXISTS `post` (
-// 		`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-// 		`pseudo` TEXT NOT NULL ,
-// 		`titre` TEXT ,
-// 		`lieu` TEXT ,
-// 		`email` TEXT NOT NULL ,
-// 		`liked` INT ,
-// 		`image` LONGBLOB NOT NULL ,
-// 		`date_editer` TIMESTAMP)");
+	// $pdo->exec("CREATE TABLE IF NOT EXISTS `post` (
+	// 	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+	// 	`pseudo` TEXT NOT NULL ,
+	// 	`titre` TEXT ,
+	// 	`lieu` TEXT ,
+	// 	`email` TEXT NOT NULL ,
+	// 	`liked` INT ,
+	// 	`image` LONGBLOB NOT NULL ,
+	// 	`date_editer` TIMESTAMP)");
 // 	$pdo->exec("CREATE TABLE IF NOT EXISTS`comment` (
 // 		`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 // 		`email` TEXT NOT NULL ,

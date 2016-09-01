@@ -1,12 +1,19 @@
 <?php
 	session_start();
 	require('setup.php');
-	if (!$_SESSION['loggued_on_user'])
-	{
-		$_SESSION['message'] = "You need to log in";
-		header("Location: ./index.php");
-		exit;
-	}
+
+	// if (!$_SESSION['loggued_on_user'])
+	// {
+	// 	$_SESSION['message'] = "You need to log in";
+	// 	header("Location: ./index.php");
+	// 	exit;
+	// }
+	$requser = $pdo->prepare('SELECT * FROM membres WHERE id = ?');
+	$requser->execute(array($_SESSION['id']));
+	$userinfo = $requser->fetch();
+	// echo $userinfo['mail']."\n";
+	// echo $userinfo['pseudo']."\n";
+
 	$pic = explode(",", $_POST['image']);
 	if($pic = base64_decode($pic[1])) {
 		$pic = imagecreatefromstring($pic);
@@ -32,17 +39,18 @@
 		$image = ob_get_contents();
 		// delete buffer
 		ob_end_clean();
-		$req = $pdo->prepare('INSERT INTO post (pseudo, titre, lieu, image, email, liked) VALUES(:pseudo, :titre, :lieu, :image, :email, :liked)');
+		$req = $pdo->prepare('INSERT INTO post (pseudo, image, email, liked) VALUES(:pseudo, :image, :email, :liked)');
 		$tab = array(
-			'pseudo' => $_SESSION['pseudo'],
-			'titre' => htmlspecialchars ($_POST['titre']),
-			'lieu' => htmlspecialchars ($_POST['lieu']),
+			'pseudo' => $userinfo['pseudo'],
+			// 'titre' => htmlspecialchars ($_POST['titre']),
+			// 'lieu' => htmlspecialchars ($_POST['lieu']),
 			'image' => "data:image/png;base64,".base64_encode($image),
-			'email' => $_SESSION['loggued_on_user'],
+			'email' => $userinfo['mail'],
 			'liked' => 0
 		);
 		$req->execute($tab);
 		$_SESSION['message'] = "You successfully posted this pic";
+		// echo $_SESSION['message'];
 		header("Location: ./cam.php");
 	}
 ?>

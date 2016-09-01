@@ -1,4 +1,72 @@
-#container {
+.booth
+{
+	width:640px;
+	background-color:#ccc;
+	border:10px solid #ddd;
+	margin: 0 auto;
+	display:inline-block;
+	/*width: 50%;*/
+	margin: 0 auto;
+}
+
+#photos
+{
+	text:center;
+	float:right;
+	display:inline-block;
+	height: 600px;
+	width:300px;
+	border: 3px solid black;
+	margin-top : 200px;
+}
+
+#chevron_gauche, #chevron_droit
+{
+	margin-bottom:500px;
+}
+
+#filtre
+{
+	position:absolute;
+	width:60px;
+}
+
+.booth-capture-button {
+	display:block;
+	margin: 10px 0;
+	padding: 10px 20px;
+	background-color:cornflowerblue;
+	color:#fff;
+	text-align:center;
+	text-decoration:none;
+}
+
+#upload
+{
+	display:block;
+	padding: 10px 20px;
+	margin:auto;
+	/*align:ce*/
+	/*margin: 10px 0;
+	background-color:cornflowerblue;
+	color:#fff;
+	text-align:center;
+	text-decoration:none;*/
+}
+
+#send
+{
+	display:block;
+	/*align:ce*/
+	/*width:100px*/
+	margin: auto;
+	padding: 10px 270px;
+	background-color:cornflowerblue;
+	color:#fff;
+	text-align:center;
+	text-decoration:none;
+}
+/* #container {
 	margin: 0px auto;
 	width: 500px;
 	height: 375px;
@@ -10,10 +78,10 @@
 	background-color: #666;
 }
 
-/*canvas, video
+canvas, video
 {
 	position: relative;
-}*/
+}
 
 #canvas
 {
@@ -34,10 +102,10 @@ aside
 {
 	flex: 1.2;
 	position: absolute;
-	/*left: 100px;*/
-	/*top: 200px;*/
-	/*width: 200px;*/
-	/*height: 100px;*/
+	left: 100px;
+	top: 200px;
+	width: 200px;
+	height: 100px;
 	float:right;
 	border : 3px solid black;
 	background-color: #706b64;
@@ -64,3 +132,4 @@ aside
 {
 	border: 1px solid #181818;
 }
+*/

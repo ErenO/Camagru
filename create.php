@@ -1,9 +1,8 @@
 <?php
 	session_start();
-
 	include "setup.php";
 	include "mail.php";
-
+	
 	if (isset($_POST['forminscription']))
 	{
 		$pseudo = htmlspecialchars($_POST['pseudo']);

@@ -10,6 +10,7 @@
 		$requser = $pdo->prepare('SELECT * FROM membres WHERE id = ?');
 		$requser->execute(array($getid));
 		$userinfo = $requser->fetch();
+		// $_SESSION['pseudo'] = $userinfo['pseudo'];
 		if (empty($_SESSION['id']))
 		{
 			$_SESSION['id'] = $getid;
