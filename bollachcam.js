@@ -1,4 +1,3 @@
-// alert("ehllo");
 var		img;
 var		tmp;
 var		numerofiltre = 1;
@@ -7,7 +6,7 @@ var		filternames = [];
 var		ok = 0;
 
 filternames["1"] = "TOD champignon";
-// filternames["2"] = "Spiderman";
+filternames["2"] = "Ballon basket";
 // filternames["3"] = "Fckin fly";
 // filternames["4"] = "Hat & Glasses";
 // filternames["5"] = "ET";
@@ -77,8 +76,8 @@ window.addEventListener("DOMContentLoaded", function() {
 	//
 	document.getElementById("chevron_gauche").addEventListener("click", function() {
 		numerofiltre--;
-		if (numerofiltre < 1)
-			numerofiltre = 1;
+		if (numerofiltre < 2)
+			numerofiltre = 2;
 		// alert(numerofiltre);
 		document.getElementById("filtre").src = "filtres/" + numerofiltre + ".png";
 		document.getElementById("png").value = "filtres/" + numerofiltre + ".png";
@@ -86,8 +85,8 @@ window.addEventListener("DOMContentLoaded", function() {
 	});
 	document.getElementById("chevron_droit").addEventListener("click", function() {
 		numerofiltre++;
-		if (numerofiltre >= 10)
-			numerofiltre = 1;
+		if (numerofiltre >= 7)
+			numerofiltre = 2;
 		// alert(numerofiltre);
 		document.getElementById("filtre").src = "filtres/" + numerofiltre + ".png";
 		document.getElementById("png").value = "filtres/" + numerofiltre + ".png";

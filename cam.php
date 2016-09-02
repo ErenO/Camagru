@@ -38,7 +38,8 @@
 		<img id="chevron_gauche" src="images/chevron-left.png"/>
 		<div class="booth">
 			<!-- <input type="hidden" id="title" value="connard"/> -->
-			<video id="video" width="640" height="380" autoplay></video>
+			<img id="filtre" src="#" value=""  />
+			<video id="video" width="640" height="480" autoplay></video>
 			<a href="#" id="snap" class="booth-capture-button">Take photo</a>
 			<!-- <button class="booth-capture-button" id="snap">Snap Photo</button> -->
 			<input type="hidden" id="png" value="" />
