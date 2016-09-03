@@ -8,11 +8,11 @@
 	{
 		 echo '<script>alert("TON TEXTE");</script>';
 	}
-	$requser = $pdo->prepare('SELECT * FROM membres WHERE id = ?');
+	$requser = $pdo->prepare('SELECT * FROM membres');
 	$requser->execute(array($_SESSION['id']));
 	$userinfo = $requser->fetch();
-	$requser = $pdo->prepare('SELECT * FROM post WHERE pseudo = ?');
-	$requser->execute(array($userinfo['pseudo']));
+	$requser = $pdo->prepare('SELECT * FROM post ORDER BY id DESC');
+	$requser->execute(array());
 ?>
 <!DOCTYPE html>
 <html>
