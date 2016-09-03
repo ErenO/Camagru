@@ -20,7 +20,8 @@
 	$userinfo = $requser->fetch();
 	$requser = $pdo->prepare('SELECT * FROM post WHERE pseudo = ?');
 	$requser->execute(array($userinfo['pseudo']));
-	$data = $requser->fetch();
+	// $data = $requser->fetch();
+	// $data2 = $requser->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +45,7 @@
 			<!-- <button class="booth-capture-button" id="snap">Snap Photo</button> -->
 			<input type="hidden" id="png" value="" />
 			<input type="hidden" id="nomfiltre" value="" />
-			<img id="filtre" src="#" value=""  />
+			<!-- <img id="filtre" src="#" value=""  /> -->
 			<canvas id="canvas" width="640" height="380"></canvas>
 			<input id="upload" type="file" name="upload" />
 			<button id="send"  onclick="postthat()">Enregistrer</button>
@@ -53,7 +54,11 @@
 		<div id="photos">
 			<h2>Mes photos</h2>
 			<?php
-		 		echo "<img src='" . $data["image"] . "' width=200 height=200/>'";
+				// while ($data = $requser->fetch())
+				// {
+				// 		echo "<img src='" . $data["image"] . "' width=200 height=200/>'";
+				// // echo "<img src='" . $data2["image"] . "' width=200 height=200/>'";
+				// }
 			?>
 		</div>
 		<aside>
