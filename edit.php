@@ -78,9 +78,10 @@
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="CSS/edit.css" />
 		<title>Le projet Camagru</title>
+
 	</head>
 	<body>
-		<a href="profil.php?id= <?php echo $_SESSION['id']; ?>">Retour à la page de profil</a>
+		<a href="profil.php?id= <?php echo $_SESSION['id']; ?>" ><img width="50" src="images/home.png"/></a>
 		<div align="center">
 				<div align="center" id="div_edit">
 					<h2>Edition de mon profil</h2>

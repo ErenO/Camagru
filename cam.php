@@ -45,8 +45,9 @@
 			<!-- <button class="booth-capture-button" id="snap">Snap Photo</button> -->
 			<input type="hidden" id="png" value="" />
 			<input type="hidden" id="nomfiltre" value="" />
+			<img id="filtre2" src="filtres/1.png" value=""  />
 			<!-- <img id="filtre" src="#" value=""  /> -->
-			<canvas id="canvas" width="640" height="380"></canvas>
+			<canvas id="canvas" width="640" height="480"></canvas>
 			<input id="upload" type="file" name="upload" />
 			<button id="send"  onclick="postthat()">Enregistrer</button>
 		</div>

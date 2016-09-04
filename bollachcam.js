@@ -86,6 +86,7 @@ window.addEventListener("DOMContentLoaded", function() {
 			numerofiltre = 7;
 		// alert(numerofiltre);
 		document.getElementById("filtre").src = "filtres/" + numerofiltre + ".png";
+		document.getElementById("filtre2").src = "filtres/" + numerofiltre + ".png";
 		document.getElementById("png").value = "filtres/" + numerofiltre + ".png";
 		document.getElementById("nomfiltre").innerHTML = filternames[numerofiltre];
 	});
@@ -95,6 +96,7 @@ window.addEventListener("DOMContentLoaded", function() {
 			numerofiltre = 1;
 		// alert(numerofiltre);
 		document.getElementById("filtre").src = "filtres/" + numerofiltre + ".png";
+		document.getElementById("filtre2").src = "filtres/" + numerofiltre + ".png";
 		document.getElementById("png").value = "filtres/" + numerofiltre + ".png";
 		document.getElementById("nomfiltre").innerHTML = filternames[numerofiltre];
 	});

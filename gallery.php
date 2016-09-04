@@ -25,7 +25,14 @@
 		<?php
 			while ($data = $requser->fetch())
 			{
-				echo "<img src='" . $data["image"] . "' width=200 height=200/>'";
+
+				echo "<div>
+				<img src='" . $data["image"] . "' width=200 height=200/>'
+				<p>
+					
+				</p>
+				</div>";
+
 			// echo "<img src='" . $data2["image"] . "' width=200 height=200/>'";
 			}
 		?>

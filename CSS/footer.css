@@ -5,9 +5,9 @@ footer
 {
 	display: flex;
 	background:  url('images/ico_top.png') no-repeat top center, url('images/ombre.png') repeat-x top;
-	padding-top: 25px;
+	/*padding-top: 25px;
 	padding: 20px 0px;
-	font-size: 12px;
+	font-size: 12px;*/
 	background-color: #1f1f1f;
 	border-top: 1px solid #3a3a3a;
 	color: #777;
@@ -16,9 +16,10 @@ footer
 	width: 100%;
 }
 
-footer p, footer ul
+footer p
 {
 	font-size: 0.8em;
+	margin:auto;
 }
 
 footer h1

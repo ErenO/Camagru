@@ -4,24 +4,17 @@
 	require "footer.html";
 	include "setup.php";
 
-	if(isset($_GET['id']) AND $_GET['id'] > 0)
+	if (isset($_GET['id']) AND $_GET['id'] > 0)
 	{
 		$getid = intval($_GET['id']);
 		$requser = $pdo->prepare('SELECT * FROM membres WHERE id = ?');
 		$requser->execute(array($getid));
 		$userinfo = $requser->fetch();
 		// $_SESSION['pseudo'] = $userinfo['pseudo'];
+
 		if (empty($_SESSION['id']))
 		{
 			$_SESSION['id'] = $getid;
-		}
-		if (isset($_SESSION['ok']))
-		{
-			echo $_SESSION['ok'];
-		}
-		else
-		{
-			echo "rien";
 		}
 	?>
 	<html>
@@ -34,15 +27,11 @@
 			<section>
 				<div align="center" id="div_profil">
 					<?php
-					if (!empty($userinfo['avatar']))
+					if (isset($userinfo['avatar']))
 					{
 						?>
 						<img width="100" height="100" src="membres/avatar/<?php echo $userinfo['avatar'] ?> "/>
 						<?php
-					}
-					else
-					{
-						echo "hello";
 					}
 					?>
 					<h2>Profil de <?php echo $userinfo['pseudo']; ?></h2>

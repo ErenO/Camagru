@@ -32,6 +32,11 @@
 	/*padding-left: 70px;*/
 }
 
+#filtre2
+{
+	position:absolute;
+}
+
 .booth-capture-button {
 	display:block;
 	margin: 10px 0;
@@ -41,6 +46,11 @@
 	text-align:center;
 	text-decoration:none;
 }
+
+/*#canvas
+{
+	display:none;
+}*/
 
 #upload
 {
