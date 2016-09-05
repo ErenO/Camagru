@@ -55,12 +55,6 @@ window.addEventListener("DOMContentLoaded", function() {
 		if(document.getElementById("video").src)
 		{
 			context.drawImage(video, 0, 0, 640, 480);
-			// document.getElementById("form").style.display = 'inline';
-			// document.getElementById("upload").style.display = 'none';
-			// document.getElementById("snap").style.display = 'none';
-			// document.getElementById("cancel").style.display = 'inline';
-			// document.getElementById("video").style.display = 'none';
-			// document.getElementById("canvas").style.display = 'inline';
 		}
 	});
 	// document.getElementById("cancel").addEventListener("click", function()
@@ -119,12 +113,6 @@ window.addEventListener("DOMContentLoaded", function() {
 				document.getElementById("upload").value = "";
 				alert("You must choose png, jpg or jpeg file only");
 			} else {
-				// document.getElementById("form").style.display = 'inline';
-				// document.getElementById("canvas").style.display = 'inline';
-				// document.getElementById("cancel").style.display = 'inline';
-				// document.getElementById("upload").style.display = 'none';
-				// document.getElementById("snap").style.display = 'none';
-				// document.getElementById("video").style.display = 'none';
 				canvas.width = 640;
 				canvas.height = 480;
 				var b64 = reader.result;

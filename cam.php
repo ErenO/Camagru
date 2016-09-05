@@ -22,6 +22,7 @@
 	$requser->execute(array($_SESSION['id']));
 	// $data = $requser->fetch();
 	// $data2 = $requser->fetch();
+	// echo $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>

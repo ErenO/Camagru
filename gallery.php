@@ -27,15 +27,13 @@
 				echo "<div id=".$data['id'].">
 				<img src='" . $data["image"] . "' width=200 height=200/>'
 				<p>
-				</p>
 
+				</p>
+				<input id='comment' type='text' name='commentaire' value=''/>
+				<button id='send'>Envoyer</button>
 				</div>";
 			// echo "<img src='" . $data2["image"] . "' width=200 height=200/>'";
 			}
 		?>
-		<div id="comment_div">
-			<input id="comment" type="text" name="commentaire" value=""/>
-			<button id="send">Envoyer</button>
-		</div>
 	</body>
 </html>
