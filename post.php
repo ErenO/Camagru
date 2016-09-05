@@ -8,9 +8,9 @@
 	// 	header("Location: ./index.php");
 	// 	exit;
 	// }
-	$requser = $pdo->prepare('SELECT * FROM membres WHERE id = ?');
-	$requser->execute(array($_SESSION['id']));
-	$userinfo = $requser->fetch();
+	// $requser = $pdo->prepare('SELECT * FROM membres WHERE id = ?');
+	// $requser->execute(array($_SESSION['id']));
+	// $userinfo = $requser->fetch();
 	// echo $userinfo['mail']."\n";
 	// echo $userinfo['pseudo']."\n";
 
@@ -39,13 +39,12 @@
 		$image = ob_get_contents();
 		// delete buffer
 		ob_end_clean();
-		$req = $pdo->prepare('INSERT INTO post (pseudo, image, email, liked) VALUES(:pseudo, :image, :email, :liked)');
+		$req = $pdo->prepare('INSERT INTO post (image, membre_id, liked) VALUES(:image, :membre_id, :liked)');
 		$tab = array(
-			'pseudo' => $userinfo['pseudo'],
 			// 'titre' => htmlspecialchars ($_POST['titre']),
 			// 'lieu' => htmlspecialchars ($_POST['lieu']),
 			'image' => "data:image/png;base64,".base64_encode($image),
-			'email' => $userinfo['mail'],
+			'membre_id' => $_SESSION['id'],
 			'liked' => 0
 		);
 		$req->execute($tab);

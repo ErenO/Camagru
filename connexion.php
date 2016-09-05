@@ -52,5 +52,6 @@ if (isset($_POST['formconnexion']))
 			}
 			?>
 		</div>
+		<a href="index.php">Home</a>
 	</body>
 </html>

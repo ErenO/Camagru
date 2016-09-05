@@ -50,13 +50,12 @@ try
 {
 	$pdo->exec("CREATE TABLE IF NOT EXISTS `post` (
 		`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-		`pseudo` TEXT NOT NULL,
 		`titre` TEXT,
 		`lieu` TEXT,
-		`email` TEXT NOT NULL,
 		`liked` INT,
 		`image` LONGBLOB NOT NULL,
-		`date_editer` TIMESTAMP)");
+		`date_editer` TIMESTAMP,
+		`membre_id` INT NOT NULL)");
 }
 catch (PDOException $e)
 {
@@ -67,10 +66,9 @@ try
 {
 	$pdo->exec("CREATE TABLE IF NOT EXISTS`comment` (
 	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-	`email` TEXT NOT NULL ,
-	`pseudo` TEXT NOT NULL ,
-	`comment` TEXT NOT NULL ,
-	`post_id` INT NOT NULL)");
+	`comment` TEXT NOT NULL,
+	`post_id` INT NOT NULL,
+	`membre_id` INT NOT NULL)");
 }
 catch (PDOException $e)
 {
