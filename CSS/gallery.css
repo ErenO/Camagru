@@ -1,6 +1,7 @@
-div
+#div_comment
 {
 	display:inline-block;
+	float: left;
 }
 
 #comment_div

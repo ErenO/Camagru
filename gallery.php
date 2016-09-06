@@ -5,11 +5,10 @@
 	include ("setup.php");
 
 	$requser = $pdo->prepare('SELECT * FROM membres');
-	$requser->execute(array($_SESSION['id']));
+	$requser->execute(array());
 	$userinfo = $requser->fetch();
 	$reqpost = $pdo->prepare('SELECT * FROM post ORDER BY id DESC');
 	$reqpost->execute(array());
-	// $reqcomment = $pdo->prepare('SELECT * FROM comment WHERE ')
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,17 +22,22 @@
 		<?php
 			while ($data = $reqpost->fetch())
 			{
+				$reqcomment = $pdo->prepare('SELECT * FROM comment WHERE membre_id = ?');
+				$reqcomment->execute(array($data['id']));
 				// $data2 = $reqcomment->fetch();
-				echo "<div id=".$data['id'].">
-				<img src='" . $data["image"] . "' width=200 height=200/>'
-				<p>
-
-				</p>
-				<input id='comment' type='text' name='commentaire' value=''/>
+				echo "<form method='POST' action='comment.php'><div id='div_comment'><img src='" . $data["image"] . "' width=200 height=200/>'";
+				 while ($data2 = $reqcomment->fetch()) {
+				echo "<p id='".$data['id']."' style='display:block'>".$data2['comment']."</p>";
+					}
+					echo "
+				<input id='photo_id' type='hidden' name='numero' value='" . $data['id'] . "' style='display:block'/>
+				<input id='comment' type='text' name='comment' value='' style='display:block'/>
 				<button id='send'>Envoyer</button>
-				</div>";
+				</div>
+				</form>";
 			// echo "<img src='" . $data2["image"] . "' width=200 height=200/>'";
 			}
 		?>
+		<script src="gallery.js"></script>
 	</body>
 </html>
