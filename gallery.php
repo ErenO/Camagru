@@ -24,6 +24,12 @@
 			{
 				$reqcomment = $pdo->prepare('SELECT * FROM comment WHERE membre_id = ?');
 				$reqcomment->execute(array($data['id']));
+				// $reqpseudo = $pdo->prepare('SELECT pseudo FROM membre WHERE id = ?');
+				// $reqpseudo->execute(array($data['id']));
+				// $data = $reqpseudo->fetch();
+				// echo "<p>
+				// " . $data['membre_id'] ."
+				// </p>";
 				// $data2 = $reqcomment->fetch();
 				echo "<form method='POST' action='comment.php'><div id='div_comment'><img src='" . $data["image"] . "' width=200 height=200/>'";
 				 while ($data2 = $reqcomment->fetch()) {
@@ -33,8 +39,13 @@
 				<input id='photo_id' type='hidden' name='numero' value='" . $data['id'] . "' style='display:block'/>
 				<input id='comment' type='text' name='comment' value='' style='display:block'/>
 				<button id='send'>Envoyer</button>
+				</br>
+				<img id='bg' src='coeur.png' style='display:block'/>
+				<p id='bg'>
+				</p>
 				</div>
 				</form>";
+
 			// echo "<img src='" . $data2["image"] . "' width=200 height=200/>'";
 			}
 		?>
