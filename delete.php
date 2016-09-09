@@ -6,5 +6,5 @@
 		$deleteData = $pdo->prepare('DELETE FROM post WHERE id = ?');
 		$deleteData->execute(array($_POST['delete_id']));
 	}
-	header('Location: gallery.php');
+	$_POST["location"] === "gallery" ? header('Location: gallery.php') : header('Location: cam.php');
 ?>

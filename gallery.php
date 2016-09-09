@@ -1,5 +1,11 @@
 <?php
 	session_start();
+	if (!$_SESSION['loggued_on_use'])
+	{
+		$_SESSION['erreur'] = "Connecte-toi !";
+		header("Location: ./connexion.php");
+		exit;
+	}
 	require_once "header.php";
 	require_once "footer.html";
 	include ("setup.php");
@@ -25,7 +31,9 @@
 			{
 				$reqcomment = $pdo->prepare('SELECT * FROM comment WHERE membre_id = ?');
 				$reqcomment->execute(array($data['id']));
-				echo " <form method='POST' action='comment.php'><div ='div_comment' class='div_comment'><img width=25 src='./images/cross.png' style='position:absolute' onClick='deleteImg(".$_SESSION['id'].", ".$data['membre_id'].")'/><img src='" . $data["image"] . "' width=200 height=200/>'";
+				echo " <form method='POST' action='comment.php'><div ='div_comment' class='div_comment'>
+				<img width=25 src='./images/cross.png' style='position:absolute' onClick='deleteImg(".$_SESSION['id'].", ".$data['membre_id'].", ".$data['id'].")'/>
+				<img src='" . $data["image"] . "' width=200 height=200/>'";
 				while ($data2 = $reqcomment->fetch())
 				{
 					$reqpseudo = $pdo->prepare('SELECT membres.pseudo
@@ -38,17 +46,19 @@
 					 echo $pseudo['pseudo']. ": ";
 					 echo $data2['comment']."</p>";
 				}
-				$userlikes = $pdo->prepare('SELECT COUNT(*) FROM likes');
-				$userlikes->execute();
-				$likes = $userlikes->fetch();
+				$reqlikes = $pdo->prepare('SELECT COUNT(*) FROM likes WHERE post_id = ? AND photo_id = ?');
+				$reqlikes->execute(array($_SESSION['id'], $data['id']));
+				$likes = $reqlikes->fetch();
+				$reqlikes = $pdo->prepare('SELECT COUNT(*) FROM likes WHERE photo_id = ?');
+				$reqlikes->execute(array($data['id']));
+				$likeAll = $reqlikes->fetch();
 				echo "
 				<input id='photo_id' type='hidden' name='numero' value='" . $data['id'] . "' style='display:block'/>
 				<input id='comment' type='text' name='comment' value='' style='display:block'/>
 				<button id='send'>Envoyer</button>
 				</br>
-				<p id='coeur".$data['id']."' onClick='reply_click(".$_SESSION['id'].")'>
-				<img src='coeur.png' style='display:block'/> ".$likes[0]."
-
+				<p id='coeur".$data['id']."' onClick='reply_click(".$_SESSION['id'].", ".$likes[0].", ".$data['id'].")'>
+				<img src='coeur.png' style='display:block'/> ".$likeAll[0]."
 				</p>
 				</div>
 				</form>";

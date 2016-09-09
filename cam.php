@@ -1,8 +1,15 @@
 <?php
 	session_start();
-	require "header.php";
-	require "footer.html";
+	if (!$_SESSION['loggued_on_user'])
+	{
+		$_SESSION['erreur'] = "Connecte-toi !";
+		header("Location: ./connexion.php");
+		exit ;
+	}
+	require_once "header.php";
+	require_once "footer.html";
 	include ("setup.php");
+
 	if(isset($_GET['id']) AND $_GET['id'] > 0)
 	{
 		$getid = intval($_GET['id']);
@@ -18,7 +25,7 @@
 	$requser = $pdo->prepare('SELECT * FROM membres WHERE id = ?');
 	$requser->execute(array($_SESSION['id']));
 	$userinfo = $requser->fetch();
-	$requser = $pdo->prepare('SELECT * FROM post WHERE membre_id = ?');
+	$requser = $pdo->prepare('SELECT * FROM post WHERE membre_id = ? ORDER BY id DESC');
 	$requser->execute(array($_SESSION['id']));
 	// $data = $requser->fetch();
 	// $data2 = $requser->fetch();
@@ -37,6 +44,10 @@
 		<title>camagru</title>
 	</head>
 	<body>
+		<?php
+			echo $_SESSION['message'];
+			$_SESSION['message'] = "";
+		?>
 		<div>
 
 			<img id="chevron_gauche" src="images/chevron-left.png"/>
@@ -61,7 +72,10 @@
 				<?php
 				while ($data = $requser->fetch())
 				{
-						echo "<img src='" . $data["image"] . "' width=200 height=200/>'";
+						echo "<div>
+							<img width=25 src='./images/cross.png' style='position:initiale' onClick='deleteImg(".$data['id'].")'/>
+							<img src='" . $data["image"] . "' width=200 height=200/>'
+							</div>";
 				// echo "<img src='" . $data2["image"] . "' width=200 height=200/>'";
 				}
 				?>
@@ -69,6 +83,9 @@
 		<aside>
 
 		</aside>
-		<script src="bollachcam.js"></script>
+		<script src="bollachcam.js">
+
+		</script>
+
 	</body>
 </html>

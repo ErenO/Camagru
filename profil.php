@@ -1,7 +1,13 @@
 <?php
 	session_start();
-	require "header.php";
-	require "footer.html";
+	if (!$_SESSION['loggued_on_user'])
+	{
+		$_SESSION['erreur'] = "Connecte-toi !";
+		header("Location: ./connexion.php");
+		exit;
+	}
+	require_once "header.php";
+	require_once "footer.html";
 	include "setup.php";
 
 	if (isset($_GET['id']) AND $_GET['id'] > 0)

@@ -45,7 +45,7 @@ try
 	`membre_id` INT NOT NULL)");
 	$pdo->exec("CREATE TABLE IF NOT EXISTS `likes` (
 		`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-		`email` TEXT NOT NULL ,
+		`photo_id` TEXT NOT NULL ,
 		`post_id` INT NOT NULL)");
 }
 catch (PDOException $e)

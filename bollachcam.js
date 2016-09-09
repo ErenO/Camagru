@@ -150,9 +150,40 @@ function postthat()
 	params["png"] = document.getElementById('png').value;
 
 	method = "post";
+	if (params["image"] || params["png"])
+	{
+		var form = document.createElement("form");
+		form.setAttribute("method", method);
+		form.setAttribute("action", "./post.php");
+
+		for (var key in params)
+		{
+			if(params.hasOwnProperty(key)) {
+				var hiddenField = document.createElement("input");
+				hiddenField.setAttribute("type", "hidden");
+				hiddenField.setAttribute("name", key);
+				hiddenField.setAttribute("value", params[key]);
+				form.appendChild(hiddenField);
+			}
+		}
+		document.body.appendChild(form);
+		form.submit();
+	}
+}
+function	deleteImg(photo_id)
+{
+	// alert("hello");
+	postDelete(photo_id);
+}
+function postDelete(id)
+{
+	var	params = [];
+	params["delete_id"] = id;
+	params["location"] = "cam";
+	method = "post";
 	var form = document.createElement("form");
 	form.setAttribute("method", method);
-	form.setAttribute("action", "./post.php");
+	form.setAttribute("action", "./delete.php");
 
 	for (var key in params)
 	{
@@ -167,8 +198,3 @@ function postthat()
 	document.body.appendChild(form);
 	form.submit();
 }
-//
-// $cle = md5(microtime(TRUE)*100000);
-//
-//
-// $message = "Hello. To authenticate your email click <a href='http://localhost:8080/Camagru/User/creation/validated.php?user_id=".$_POST['email']."&cle=".$cle."'>this link.</a>";

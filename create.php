@@ -33,7 +33,7 @@
 								}
 								$insertmbr = $pdo->prepare("INSERT INTO membres(pseudo, mail, motdepasse, confirmkey, avatar) VALUES(?, ?, ?, ?, ?)");
 								$insertmbr->execute(array($pseudo, $mail, $mdp, $key, "no_avatar_big.png"));
-								send_mail($mail, $key, $pseudo);
+								send_mail("eren.ozdek@gmail.com", $key, $pseudo);
 								$_SESSION['erreur'] = "Votre compte a bien été créé ! <a href=\"connexion.php\">Me connecter</a>";
 							}
 							else
