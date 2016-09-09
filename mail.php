@@ -1,5 +1,5 @@
 <?php
-
+	session_start();
 	function send_mail($to, $key, $pseudo)
 	{
 		// $from_user = "=?UTF-8?B?".base64_encode($from_user)."?=";
@@ -7,6 +7,10 @@
 		// echo "HELLO";
 		$subject="Confirmation du mail";
 		$message = 'hello';
+		$key = md5(microtime(TRUE)*100000);
+		$_SESSION['key'] = $key;
+		$message = "Pour valider ton compte. Clique <a href='http://localhost:8080/Camagru/User/creation/validated.php?id=".$pseudo."&key=".$key."'>ici.</a>";
+
 		// <html>
 		// 	<body>
 		// 		<div align="center">
