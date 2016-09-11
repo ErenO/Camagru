@@ -50,7 +50,6 @@ function postDelete(id)
 	var form = document.createElement("form");
 	form.setAttribute("method", method);
 	form.setAttribute("action", "./delete.php");
-
 	for (var key in params)
 	{
 		if (params.hasOwnProperty(key)) {
@@ -64,3 +63,11 @@ function postDelete(id)
 	document.body.appendChild(form);
 	form.submit();
 }
+
+
+// document.getElementById("form").style.display = 'inline';
+// document.getElementById("upload").style.display = 'none';
+// document.getElementById("snap").style.display = 'none';
+// document.getElementById("cancel").style.display = 'inline';
+// document.getElementById("video").style.display = 'none';
+// document.getElementById("canvas").style.display = 'inline';

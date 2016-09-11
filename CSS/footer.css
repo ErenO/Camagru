@@ -8,9 +8,9 @@ footer
 	/*padding-top: 25px;
 	padding: 20px 0px;
 	font-size: 12px;*/
-	background-color: #1f1f1f;
+	background-color: #DF514C;
 	border-top: 1px solid #3a3a3a;
-	color: #777;
+	color: #FFF;
 	position: fixed;
 	bottom: 0px;
 	width: 100%;
@@ -31,44 +31,4 @@ footer h1
 	text-align: center;
 	margin: auto;
 
-}
-#tweet
-{
-	width: 28%;
-}
-
-#mes_photos
-{
-	width: 35%;
-}
-
-#mes_amis
-{
-	width: 31%;
-}
-
-#mes_photos img
-{
-	border: 1px solid #181818;
-	margin-right: 2px;
-}
-
-#listes_amis
-{
-	display: flex;
-	justify-content: space-between;
-	margin-top: 0;
-	margin-right : 30px;
-}
-
-#mes_amis ul
-{
-	list-style-image: url('images/ico_liensexterne.png');
-	padding-left: 2px;
-}
-
-#mes_amis a
-{
-	text-decoration: none;
-	color: #760001;
 }

@@ -6,10 +6,19 @@
 		header("Location: ./connexion.php");
 		exit ;
 	}
-
+	include ("setup.php");
 	require_once "header.php";
 	require_once "footer.html";
-	include ("setup.php");
+
+	$reqvalid = $pdo->prepare('SELECT validate FROM membres WHERE id = ?');
+	$reqvalid->execute(array($_SESSION['id']));
+	$valid = $reqvalid->fetch();
+	if ($valid[0] == 0)
+	{
+		$_SESSION['erreur'] = "Valide ton compte avant de te connecter !";
+		echo $_SESSION['erreur'];
+		exit ;
+	}
 
 	if(isset($_GET['id']) AND $_GET['id'] > 0)
 	{
@@ -48,28 +57,26 @@
 		<?php
 			echo $_SESSION['message'];
 			$_SESSION['message'] = "";
-			if (isset($_SESSION['id']))
-			{
-				echo $_SESSION['id'];
-			}
-			else
-			{
-				echo "rien";
-			}
-			echo $_SESSION['loggued_on_user'];
+			// if (isset($_SESSION['id']))
+			// {
+			// 	echo $_SESSION['id'];
+			// }
+			// else
+			// {
+			// 	echo "rien";
+			// }
+			// echo $_SESSION['loggued_on_user'];
 		?>
-		<div>
+		<div id="cam">
 			<img id="chevron_gauche" src="images/left-arrow.png"/>
 			<div class="booth">
 				<!-- <input type="hidden" id="title" value="connard"/> -->
 				<img id="filtre" src="filtres/1.png" value=""  />
 				<video id="video" width="640" height="480" autoplay></video>
 				<a href="#" id="snap" class="booth-capture-button">Take photo</a>
-				<!-- <button class="booth-capture-button" id="snap">Snap Photo</button> -->
 				<input type="hidden" id="png" value="" />
 				<input type="hidden" id="snap_photo" value=""  />
 				<img id="filtre2" src="filtres/1.png" value=""  />
-				<!-- <img id="filtre" src="#" value=""  /> -->
 				<canvas id="canvas" width="640" height="480"></canvas>
 				<input id="upload" type="file" name="upload" />
 				<button id="send"  onclick="postthat()">Enregistrer</button>
@@ -77,24 +84,19 @@
 			<img id="chevron_droit" src="images/right-arrow.png"/>
 		</div>
 			<div id="photos">
-				<h2>Mes photos</h2>
+				<h2>Photos</h2>
 				<?php
 				while ($data = $requser->fetch())
 				{
-						echo "<div>
-							<img width=25 src='./images/cross.png' style='position:initiale' onClick='deleteImg(".$data['id'].")'/>
-							<img src='" . $data["image"] . "' width=200 height=200/>'
+						echo "<div class='photos_div'>
+							<img class='cross' width=25 src='./images/cross.png' onClick='deleteImg(".$data['id'].")'/>
+							<img src='" . $data["image"] . "' width=250 height=200/>'
 							</div>";
 				// echo "<img src='" . $data2["image"] . "' width=200 height=200/>'";
 				}
 				?>
 			</div>
-		<aside>
-
-		</aside>
-		<script src="bollachcam.js">
-
-		</script>
-
+		<aside></aside>
+		<script src="cam.js"></script>
 	</body>
 </html>

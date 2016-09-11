@@ -1,10 +1,20 @@
-header
+/*header
 {
 	background: url('images/separateur.png') repeat-x bottom;
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
 	padding-top: 20px;
+}*/
+
+
+
+body{
+margin:0px;
+}
+#header{
+height:120px;
+background:#DF514C;
 }
 
 #titre_principal
@@ -18,6 +28,7 @@ header
 	display: flex;
 	flex-direction: row;
 	align-items: baseline;
+	padding-top: 20px;
 }
 
 #logo img
@@ -26,20 +37,13 @@ header
 	height: 60px;
 }
 
-header h1
+#header h1
 {
 	font-family: 'BallparkWeiner', serif;
 	font-size: 2.5em;
 	font-weight: normal;
+	color : #FFFFFF;
 	margin: 0 0 0 10px;
-}
-
-header h2
-{
-	font-family: Dayrom, serif;
-	font-size: 1.1em;
-	margin-top: 0px;
-	font-weight: normal;
 }
 
 nav ul
@@ -50,19 +54,25 @@ nav ul
 
 nav li
 {
-	margin-right: 15px;
+	/*margin-right: 15px;*/
 }
 
 nav a
 {
 	font-size: 1.3em;
 	color: #181818;
-	padding-bottom: 3px;
+	padding: 12.5px 12.5px 12.5px 12.5px;
 	text-decoration: none;
 }
 
 nav a:hover
 {
-	color: #760001;
-	border-bottom: 3px solid #760001;
+	color: #DF514C;
+	background-color: #C6EBFD;
+	/*border-bottom: 3px solid #760001;*/
+}
+
+#disconnect
+{
+	/*margin-left: 5em;*/
 }

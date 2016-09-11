@@ -10,6 +10,15 @@
 	require_once "footer.html";
 	include "setup.php";
 
+	$reqvalid = $pdo->prepare('SELECT validate FROM membres WHERE id = ?');
+	$reqvalid->execute(array($_SESSION['id']));
+	$valid = $reqvalid->fetch();
+	if ($valid[0] == 0)
+	{
+		$_SESSION['erreur'] = "Valide ton compte avant de te connecter !";
+		echo $_SESSION['erreur'];
+		exit ;
+	}
 	if (isset($_GET['id']) AND $_GET['id'] > 0)
 	{
 		$getid = intval($_GET['id']);
@@ -22,10 +31,12 @@
 		{
 			$_SESSION['id'] = $getid;
 		}
+	}
 	?>
 	<html>
 		<head>
 			<meta charset="utf-8" />
+			<link rel="stylesheet" href="CSS/body.css" />
 			<link rel="stylesheet" href="CSS/profil.css" />
 			<title>Le projet Camagru</title>
 		</head>
@@ -59,6 +70,3 @@
 			</section>
 		</body>
 	</html>
-	<?php
-	}
-?>

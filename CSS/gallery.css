@@ -10,3 +10,44 @@
 	/*margin-top:700px;*/
 	/*margin-bottom:200px;*/
 }
+
+.photos_filtre
+{
+	margin : 20px;
+}
+
+.text_area
+{
+	width : 240px;
+	margin-left: 20px;
+	border-radius: 5px;
+}
+
+.btn {
+	margin-top: 5px;
+	margin-left: 20px;
+	background: #4AABDF;
+	/*background-image: -webkit-linear-gradient(top, #fc0022, #d11010);*/
+	/*background-image: -moz-linear-gradient(top, #fc0022, #d11010);*/
+	/*background-image: -ms-linear-gradient(top, #fc0022, #d11010);*/
+	/*background-image: -o-linear-gradient(top, #fc0022, #d11010);*/
+	/*background-image: linear-gradient(to bottom, #fc0022, #d11010);*/
+	/*-webkit-border-radius: 12;*/
+	/*-moz-border-radius: 12;*/
+	border-radius: 10px;
+	font-family: Arial;
+	color: #FFFFFF;
+	font-size: 12px;
+	padding: 5px 10px 5px 10px;
+	text-decoration: none;
+}
+
+.coeur
+{
+	margin-left: 20px;
+}
+
+.comment
+{
+	margin-left: 20px;
+}
