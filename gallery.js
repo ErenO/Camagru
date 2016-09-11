@@ -37,9 +37,10 @@ function	deleteImg(post_id, membre_id, photo_id)
 	}
 	else
 	{
-		alert (post_id + "Tu ne peux pas supprimer la photo d'un autre utilisateur !" + photo_id);
+		alert ("Tu ne peux pas supprimer la photo d'un autre utilisateur !");
 	}
 }
+
 function postDelete(id)
 {
 	var	params = [];
