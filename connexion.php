@@ -47,12 +47,11 @@ if (isset($_POST['formconnexion']))
 				<input type="submit" name="formconnexion" value="Connexion" />
 			</form>
 			<?php
-			if(isset($_SESSION['erreur']))
+			if (isset($_SESSION['erreur']))
 			{
 				echo '<font color="red">' . $_SESSION['erreur'] . "</font>";
 			}
 			?>
 		</div>
-		<a href="index.php">Home</a>
 	</body>
 </html>

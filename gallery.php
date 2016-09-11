@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if (!$_SESSION['loggued_on_use'])
+	if (!$_SESSION['loggued_on_user'])
 	{
 		$_SESSION['erreur'] = "Connecte-toi !";
 		header("Location: ./connexion.php");
@@ -10,6 +10,7 @@
 	require_once "footer.html";
 	include ("setup.php");
 
+	$i = 0;
 	$requser = $pdo->prepare('SELECT * FROM membres');
 	$requser->execute(array());
 	$userinfo = $requser->fetch();
@@ -23,6 +24,7 @@
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="CSS/body.css" />
 		<link rel="stylesheet" href="CSS/gallery.css" />
+		<link rel="stylesheet" href="button.css"  />
 		<title>Gallerie</title>
 	</head>
 	<body>
@@ -62,6 +64,12 @@
 				</p>
 				</div>
 				</form>";
+				$i += 1;
+			}
+			if ($i == 0)
+			{
+				echo "<center><a href='cam.php' id='galButton' class='myButton'>Vous n'avez pas de photos. Veuillez en prendre une !</a></center>";
+				// echo "<a href='cam.php'>Vous n'avez pas de photos. Veuillez en prendre une !</a>";
 			}
 		?>
 		<script src="gallery.js"></script>

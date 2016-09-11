@@ -77,6 +77,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="CSS/edit.css" />
+		<link rel="stylesheet" href="button.css" />
 		<title>Le projet Camagru</title>
 
 	</head>
@@ -114,27 +115,29 @@
 						</tr>
 						<tr align="right">
 							<td>
-								<label>Avatar :</label>
-							</td>
-							<td align="right">
-								<input type="file" name="avatar"  /> <br /> <br />
-							</td>
-							<!-- <input type="submit" value="Update profil" /> -->
-						</tr>
-						<tr align="right">
-							<td>
 								<label>Confirmation - mot de passe :</label>
 							</td>
 							<td>
 								<input type="password" name="newmdp2" placeholder="Confirmation du mot de passe" id="input_edit"/><br /><br />
 							</td>
 						</tr>
-						<tr align="right">
+						<!-- <tr align="right">
+							<td> -->
+								<!-- <label>Avatar :</label> -->
+							<!-- </td>
+							<td align="right"> -->
+							<!-- </td> -->
+							<!-- <input type="submit" value="Update profil" /> -->
+						<!-- </tr> -->
+						<center>
+							<input type="file" name="avatar"  style=/> <br /> <br />
+						</center>
+						<!-- <tr align="right">
 							<td></td>
-							<td>
-								<input type="submit" value="Mettre à jour mon profil !" />
-							</td>
-						</tr>
+							<td> -->
+								<input class="myButton" type="submit" value="Mettre à jour mon profil !" />
+							<!-- </td>
+						</tr> -->
 						</form>
 				</table>
 				<?php if(isset($msg)) { echo $msg; } ?>

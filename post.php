@@ -13,9 +13,8 @@
 	// $userinfo = $requser->fetch();
 	// echo $userinfo['mail']."\n";
 	// echo $userinfo['pseudo']."\n";
-
 	$pic = explode(",", $_POST['image']);
-	if($pic = base64_decode($pic[1])) {
+	if ($pic = base64_decode($pic[1])) {
 		$pic = imagecreatefromstring($pic);
 		if (!file_exists($_POST['png']))
 		{
@@ -43,8 +42,6 @@
 			ob_end_clean();
 			$req = $pdo->prepare('INSERT INTO post (image, membre_id, liked) VALUES(:image, :membre_id, :liked)');
 			$tab = array(
-				// 'titre' => htmlspecialchars ($_POST['titre']),
-				// 'lieu' => htmlspecialchars ($_POST['lieu']),
 				'image' => "data:image/png;base64,".base64_encode($image),
 				'membre_id' => $_SESSION['id'],
 				'liked' => 0

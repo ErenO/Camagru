@@ -27,6 +27,7 @@ try
 		`pseudo` TEXT NOT NULL,
 		`motdepasse` TEXT NOT NULL,
 		`confirmkey` TEXT NOT NULL,
+		`validate` INT,
 		`avatar` TEXT NOT NULL,
 		`confirm` INT NULL)");
 		// `avatar` LONGBLOB ,

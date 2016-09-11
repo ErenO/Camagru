@@ -25,18 +25,13 @@
 						{
 							if ($mdp == $mdp2)
 							{
-								$longueurKey = 12;
-								$key = "";
-								for ($i = 1; $i < $longueurKey; $i++)
-								{
-									$key .= mt_rand(0, 9);
-								}
-								$insertmbr = $pdo->prepare("INSERT INTO membres(pseudo, mail, motdepasse, confirmkey, avatar) VALUES(?, ?, ?, ?, ?)");
-								$insertmbr->execute(array($pseudo, $mail, $mdp, $key, "no_avatar_big.png"));
+								$key = md5(microtime(TRUE)*100000);
+								$insertmbr = $pdo->prepare("INSERT INTO membres(pseudo, mail, motdepasse, confirmkey, avatar, validate) VALUES(?, ?, ?, ?, ?, ?)");
+								$insertmbr->execute(array($pseudo, $mail, $mdp, $key, "no_avatar_big.png", 0));
 								$userinfo = $pdo->prepare('SELECT id FROM membres WHERE pseudo = ?');
 								$userinfo->execute(array($pseudo));
 								$user = $userinfo->fetch();
-								send_mail("eren.ozdek@gmail.com", $key, $pseudo);
+								send_mail("eren.ozdek@gmail.com", $key, $user[0]);
 								$_SESSION['erreur'] = "Votre compte a bien été créé ! <a href=\"connexion.php\">Me connecter</a>";
 							}
 							else

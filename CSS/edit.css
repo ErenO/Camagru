@@ -1,9 +1,13 @@
 #div_edit
 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	border : 3px solid black;
+	border-radius : 12px;
 	width : 600px;
 	height : 400px;
-	border-radius : 12px;
 }
 
 
@@ -17,6 +21,7 @@ body
 	/*background-color: #FFFFFF;*/
 	color: #000000;
 	/*margin-top: 0px;*/
+
 }
 
 #input_edit

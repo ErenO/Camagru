@@ -47,7 +47,7 @@
 					Mail = <?php echo $userinfo['mail']; ?>
 					<br />
 					<?php
-					if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
+					if (isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
 						?>
 						<br />
 						<a href="edit.php">Editer mon profil</a>

@@ -2,20 +2,9 @@ var		img;
 var		tmp;
 var		numerofiltre = 1;
 var		vid = 0;
-var		filternames = [];
 var		ok = 0;
 
-filternames["1"] = "TOD champignon";
-filternames["2"] = "Ballon basket";
-// filternames["3"] = "Fckin fly";
-// filternames["4"] = "Hat & Glasses";
-// filternames["5"] = "ET";
-// filternames["6"] = "Surgery";
-// filternames["7"] = "Leprechaun";
-// filternames["8"] = "Unicorn";
-// filternames["9"] = "Chimpokomon";
 window.addEventListener("DOMContentLoaded", function() {
-		// alert('hello');
 	var canvas = document.getElementById("canvas"),
 		context = canvas.getContext("2d"),
 		video = document.getElementById("video"),
@@ -48,11 +37,12 @@ window.addEventListener("DOMContentLoaded", function() {
 		}, errBack);
 	}
 	document.getElementById("video").src.onchange = function() {
-	ok = 1;
-};
+		ok = 1;
+	};
 	document.getElementById("snap").addEventListener("click", function()
 	{
-		if(document.getElementById("video").src)
+		document.getElementById("snap_photo").value = "ok";
+		if (document.getElementById("video").src)
 		{
 			context.drawImage(video, 0, 0, 640, 480);
 		}
@@ -78,21 +68,17 @@ window.addEventListener("DOMContentLoaded", function() {
 		numerofiltre--;
 		if (numerofiltre < 1)
 			numerofiltre = 7;
-		// alert(numerofiltre);
 		document.getElementById("filtre").src = "filtres/" + numerofiltre + ".png";
 		document.getElementById("filtre2").src = "filtres/" + numerofiltre + ".png";
 		document.getElementById("png").value = "filtres/" + numerofiltre + ".png";
-		document.getElementById("nomfiltre").innerHTML = filternames[numerofiltre];
 	});
 	document.getElementById("chevron_droit").addEventListener("click", function() {
 		numerofiltre++;
 		if (numerofiltre > 7)
 			numerofiltre = 1;
-		// alert(numerofiltre);
 		document.getElementById("filtre").src = "filtres/" + numerofiltre + ".png";
 		document.getElementById("filtre2").src = "filtres/" + numerofiltre + ".png";
 		document.getElementById("png").value = "filtres/" + numerofiltre + ".png";
-		document.getElementById("nomfiltre").innerHTML = filternames[numerofiltre];
 	});
 	// document.getElementById("canvas").addEventListener("click", function() {
 	// 	numerofiltre++;
@@ -103,7 +89,6 @@ window.addEventListener("DOMContentLoaded", function() {
 	// 	document.getElementById("nomfiltre").innerHTML = filternames[numerofiltre];
 	// });
 	document.getElementById("upload").onchange = function() {
-		// alert("BON")
 		var fileInput = document.getElementById("upload");
 		var reader  = new FileReader();
 		reader.addEventListener('load', function() {
@@ -129,7 +114,6 @@ window.addEventListener("DOMContentLoaded", function() {
 		}
 	};
 }, false);
-//
 // function masquer(id)
 // {
 // 	document.getElementById(id).style.display = 'none';
@@ -144,21 +128,23 @@ function postthat()
 {
 	var	params = [];
 	img = canvas.toDataURL("image/png");
-	// params["titre"] = document.getElementById('title').value;
 	params["image"] = img;
-	// params["lieu"] = document.getElementById('place').value;
 	params["png"] = document.getElementById('png').value;
-
+	params["png"] == "filtres/1.png" ? "" : params["png"];
 	method = "post";
-	if (params["image"] || params["png"])
+	if (document.getElementById("snap_photo").value != "ok")
+	{
+		params["image"] = "";
+	}
+	if (params["image"] && params["png"])
 	{
 		var form = document.createElement("form");
 		form.setAttribute("method", method);
 		form.setAttribute("action", "./post.php");
-
 		for (var key in params)
 		{
-			if(params.hasOwnProperty(key)) {
+			if (params.hasOwnProperty(key))
+			{
 				var hiddenField = document.createElement("input");
 				hiddenField.setAttribute("type", "hidden");
 				hiddenField.setAttribute("name", key);
@@ -170,11 +156,12 @@ function postthat()
 		form.submit();
 	}
 }
+
 function	deleteImg(photo_id)
 {
-	// alert("hello");
 	postDelete(photo_id);
 }
+
 function postDelete(id)
 {
 	var	params = [];
@@ -184,10 +171,9 @@ function postDelete(id)
 	var form = document.createElement("form");
 	form.setAttribute("method", method);
 	form.setAttribute("action", "./delete.php");
-
 	for (var key in params)
 	{
-		if(params.hasOwnProperty(key)) {
+		if (params.hasOwnProperty(key)) {
 			var hiddenField = document.createElement("input");
 			hiddenField.setAttribute("type", "hidden");
 			hiddenField.setAttribute("name", key);

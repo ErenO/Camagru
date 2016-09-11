@@ -40,7 +40,7 @@
 
 input[type=submit]
 {
-	background-color: #4CAF50; /* Green */
+	background-color: #4CAF50;
 	border: none;
 	color: white;
 	padding: 10px 32px;
@@ -56,6 +56,11 @@ input[type=submit]
 
 body
 {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
 	/*background-image: url("paysage.jpeg");*/
 	background-color: #cccccc;
 	/*font-family: Impact, "Arial Black", Arial, Verdana, sans-serif;*/

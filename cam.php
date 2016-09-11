@@ -6,6 +6,7 @@
 		header("Location: ./connexion.php");
 		exit ;
 	}
+
 	require_once "header.php";
 	require_once "footer.html";
 	include ("setup.php");
@@ -47,10 +48,18 @@
 		<?php
 			echo $_SESSION['message'];
 			$_SESSION['message'] = "";
+			if (isset($_SESSION['id']))
+			{
+				echo $_SESSION['id'];
+			}
+			else
+			{
+				echo "rien";
+			}
+			echo $_SESSION['loggued_on_user'];
 		?>
 		<div>
-
-			<img id="chevron_gauche" src="images/chevron-left.png"/>
+			<img id="chevron_gauche" src="images/left-arrow.png"/>
 			<div class="booth">
 				<!-- <input type="hidden" id="title" value="connard"/> -->
 				<img id="filtre" src="filtres/1.png" value=""  />
@@ -58,14 +67,14 @@
 				<a href="#" id="snap" class="booth-capture-button">Take photo</a>
 				<!-- <button class="booth-capture-button" id="snap">Snap Photo</button> -->
 				<input type="hidden" id="png" value="" />
-				<input type="hidden" id="nomfiltre" value="" />
+				<input type="hidden" id="snap_photo" value=""  />
 				<img id="filtre2" src="filtres/1.png" value=""  />
 				<!-- <img id="filtre" src="#" value=""  /> -->
 				<canvas id="canvas" width="640" height="480"></canvas>
 				<input id="upload" type="file" name="upload" />
 				<button id="send"  onclick="postthat()">Enregistrer</button>
 			</div>
-			<img id="chevron_droit" src="images/chevron-right.png"/>
+			<img id="chevron_droit" src="images/right-arrow.png"/>
 		</div>
 			<div id="photos">
 				<h2>Mes photos</h2>

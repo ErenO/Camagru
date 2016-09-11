@@ -71,6 +71,5 @@
 			}
 			?>
 		</div>
-		<a href="connexion.php">Déjà un compte ?</a>
 	</body>
 </html>

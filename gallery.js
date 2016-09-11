@@ -6,7 +6,6 @@ function	reply_click(clicked_id, nb_like, photo_id)
 	}
 }
 
-
 function postForm(id, photo_id)
 {
 	var	params = [];
@@ -16,10 +15,9 @@ function postForm(id, photo_id)
 	var form = document.createElement("form");
 	form.setAttribute("method", method);
 	form.setAttribute("action", "./like.php");
-
 	for (var key in params)
 	{
-		if(params.hasOwnProperty(key)) {
+		if (params.hasOwnProperty(key)) {
 			var hiddenField = document.createElement("input");
 			hiddenField.setAttribute("type", "hidden");
 			hiddenField.setAttribute("name", key);
@@ -35,7 +33,6 @@ function	deleteImg(post_id, membre_id, photo_id)
 {
 	if (post_id == membre_id)
 	{
-		alert(post_id);
 		postDelete(photo_id);
 	}
 	else
@@ -55,7 +52,7 @@ function postDelete(id)
 
 	for (var key in params)
 	{
-		if(params.hasOwnProperty(key)) {
+		if (params.hasOwnProperty(key)) {
 			var hiddenField = document.createElement("input");
 			hiddenField.setAttribute("type", "hidden");
 			hiddenField.setAttribute("name", key);
