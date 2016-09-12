@@ -6,7 +6,6 @@
 		// $from_user = "=?UTF-8?B?".base64_encode($from_user)."?=";
 		// $subject = "=?UTF-8?B?".base64_encode($subject)."?=";
 		$subject="Confirmation du mail";
-		$_SESSION['key'] = $key;
 		$message = "Pour valider ton compte. Clique <a href='http://localhost:8080/Camagru/validate.php?id=".$id."&key=".$key."'>ici.</a>";
 		$headers = "From: Support <eozdek@student.42.fr>\n".
 		"MIME-Version: 1.0" . "\n" .

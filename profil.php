@@ -10,6 +10,10 @@
 	require_once "footer.html";
 	include "setup.php";
 
+	$reqpicture = $pdo->prepare('SELECT * FROM post WHERE membre_id = ? ORDER BY id DESC');
+	$reqpicture->execute(array($_SESSION['id']));
+	// $reqpost = $pdo->prepare('SELECT * FROM post ORDER BY id DESC');
+	// $reqpost->execute(array());
 	$reqvalid = $pdo->prepare('SELECT validate FROM membres WHERE id = ?');
 	$reqvalid->execute(array($_SESSION['id']));
 	$valid = $reqvalid->fetch();
@@ -68,5 +72,17 @@
 					?>
 				</div>
 			</section>
+			<div>
+				<h2>Mes photos</h2>
+				<?php
+				while ($photos = $reqpicture->fetch())
+				{
+					// print_r($photos);
+					echo "<div>
+					<img src=".$photos["image"]."/>
+					</div>";
+				}
+				?>
+			</div>
 		</body>
 	</html>
