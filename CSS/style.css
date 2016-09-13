@@ -9,7 +9,7 @@
 	margin-top:20em;
 	width: 500px;
 	height: 350px;
-	background-color: #cccccc;
+	background-color: #DF514C;
 	border : 3px solid black;
 	/*line-height: 5em;*/
 }
@@ -56,13 +56,8 @@ input[type=submit]
 
 body
 {
-	position: absolute;
-	top: 30%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-
 	/*background-image: url("paysage.jpeg");*/
-	background-color: #cccccc;
+	background-color: #FFFFFF;
 	/*font-family: Impact, "Arial Black", Arial, Verdana, sans-serif;*/
 	font-family: 'Arial Black', Gadget, sans-serif;
 	font-size: small;
@@ -70,3 +65,20 @@ body
 	color: #000000;
 	margin-top: 0px;
 }
+
+/*body
+{
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	background-image: url("paysage.jpeg");
+	background-color: #cccccc;
+	font-family: Impact, "Arial Black", Arial, Verdana, sans-serif;
+	font-family: 'Arial Black', Gadget, sans-serif;
+	font-size: small;
+	background-color: #FFFFFF;
+	color: #000000;
+	margin-top: 0px;
+}*/

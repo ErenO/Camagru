@@ -10,6 +10,7 @@
 		$headers = "From: Support <eozdek@student.42.fr>\n".
 		"MIME-Version: 1.0" . "\n" .
 		"Content-type: text/html; charset=UTF-8" . "\n";
+		$_SESSION['erreur'] = "mail sent";
 		return mail($to, $subject, $message, $headers);
 	}
 
