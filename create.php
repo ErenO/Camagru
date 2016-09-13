@@ -71,15 +71,7 @@
 											$userinfo = $pdo->prepare('SELECT id FROM membres WHERE pseudo = ?');
 											$userinfo->execute(array($pseudo));
 											$user = $userinfo->fetch();
-											$subject="Confirmation du mail";
-											$message = "hello";
-											// $message = "Pour valider ton compte. Clique <a href='http://localhost:8080/Camagru/validate.php?id=".$user[0]."&key=".$key."'>ici.</a>";
-											$headers = "From: Support <eozdek@student.42.fr>\n".
-											"MIME-Version: 1.0" . "\n" .
-											"Content-type: text/html; charset=UTF-8" . "\n";
-											// $_SESSION['erreur'] = "mail sent";
-											mail("eren.ozdek@gmail.com","Confirmation du mail", "hello", $headers);
-											// send_mail("eren.ozdek@gmail.com", $key, $user[0]);
+											send_mail("eren.ozdek@gmail.com", $key, $user[0]);
 											$_SESSION['erreur'] = "Votre compte a bien été créé ! <a href=\"connexion.php\">Me connecter</a>";
 										}
 										else
