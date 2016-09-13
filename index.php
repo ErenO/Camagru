@@ -66,7 +66,7 @@
 			</form>
 			<?php
 			if (isset($_SESSION['erreur'])) {
-				echo '<font color="red">'.$_SESSION['erreur']."</font>";
+				echo '<font color="white">'.$_SESSION['erreur']."</font>";
 				$_SESSION['erreur'] = '';
 			}
 			?>
