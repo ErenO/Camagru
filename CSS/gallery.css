@@ -2,6 +2,7 @@
 {
 	display:inline-block;
 	float: left;
+	margin-bottom: 50px;
 }
 
 #comment_div
@@ -9,6 +10,12 @@
 	display:block;
 	/*margin-top:700px;*/
 	/*margin-bottom:200px;*/
+}
+
+.cross_img
+{
+	float:left;
+	position:relative;
 }
 
 .photos_filtre

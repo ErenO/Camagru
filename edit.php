@@ -85,64 +85,69 @@
 		<a href="profil.php?id= <?php echo $_SESSION['id']; ?>" ><img width="50" src="images/home.png"/></a>
 		<div align="center">
 				<div align="center" id="div_edit">
+					<img src="images/retour.jpg" id="return_img" onClick="edit_back()"/>
 					<h2>Edition de mon profil</h2>
 					<form method="POST" action="" enctype="multipart/form-data">
 						<br /><br />
-					<table>
-						<tr align="right">
+					<a href="#" id="pseudo" class="booth-capture-button" onClick="edit_pseudo()">Changer de pseudo</a>
+					<a href="#" id="mail" class="booth-capture-button" onClick="edit_mail()">Changer de mail</a>
+					<a href="#" id="password" class="booth-capture-button" onClick="edit_passwd()">Changer de mot de passe</a>
+					<a href="#" id="navatar" class="booth-capture-button" onClick="edit_avatar()">Changer d'avatar</a>
+					<table id="table">
+						<tr align="right" id="newpseudo">
 							<td>
 								<label>Pseudo :</label>
 							</td>
 							<td>
-								<input type="text" name="newpseudo" placeholder="Pseudo" value="<?php echo $user['pseudo']; ?>" id="input_edit"/><br /><br />
+								<input type="text" name="newpseudo" placeholder="Pseudo" value="<?php echo $user['pseudo']; ?>" class="input_edit"/><br /><br />
 							</td>
 						</tr>
-						<tr align="right">
+						<tr align="right" id=newmail>
 							<td>
 								<label>Mail :</label>
 							</td>
 							<td>
-								<input type="text" name="newmail" placeholder="Mail" value="<?php echo $user['mail']; ?>" id="input_edit"/><br /><br />
+								<input type="text" name="newmail" placeholder="Mail" value="<?php echo $user['mail']; ?>" class="input_edit"/><br /><br />
 							</td>
 						</tr>
-						<tr align="right">
+						<tr align="right" id="newpasswd">
 							<td>
 								<label>Mot de passe :</label>
 							</td>
 							<td>
-								<input type="password" name="newmdp1" placeholder="Mot de passe" id="input_edit"/><br /><br />
+								<input type="password" name="newmdp1" placeholder="Mot de passe" class="input_edit"/><br /><br />
 							</td>
 						</tr>
-						<tr align="right">
+						<tr align="right" id="newpasswd2">
 							<td>
 								<label>Confirmation - mot de passe :</label>
 							</td>
 							<td>
-								<input type="password" name="newmdp2" placeholder="Confirmation du mot de passe" id="input_edit"/><br /><br />
+								<input type="password" name="newmdp2" placeholder="Confirmation du mot de passe" class="input_edit"/><br /><br />
 							</td>
 						</tr>
-						<!-- <tr align="right">
-							<td> -->
-								<!-- <label>Avatar :</label> -->
-							<!-- </td>
-							<td align="right"> -->
-							<!-- </td> -->
-							<!-- <input type="submit" value="Update profil" /> -->
-						<!-- </tr> -->
-						<center>
-							<input type="file" name="avatar"  style=/> <br /> <br />
-						</center>
-						<!-- <tr align="right">
+						 <tr align="right" id="newavatar">
+							<td>
+								 <label>Avatar :</label>
+							 </td>
+							<td align="right">
+								<center>
+									<input type="file" name="avatar"  style=/> <br /> <br />
+								</center>
+							</td>
+						</tr>
+						 <tr align="right" id="envoyer">
 							<td></td>
-							<td> -->
+							<td>
 								<input class="myButton" type="submit" value="Mettre à jour mon profil !" />
-							<!-- </td>
-						</tr> -->
+							</td>
+						</tr>
 						</form>
 				</table>
-				<?php if(isset($msg)) { echo $msg; } ?>
+				<?php if (isset($msg)) { echo $msg; } ?>
 			</div>
 		</div>
+		<script src="edit.js"></script>
 	</body>
 	</html>
 		<?php

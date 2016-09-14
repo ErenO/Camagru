@@ -8,23 +8,45 @@
 	border-radius : 12px;
 	width : 600px;
 	height : 400px;
+	background-color: #DF514C;
 }
 
+.booth-capture-button {
+	display:block;
+	margin: 10px 0;
+	padding: 10px 20px;
+	background-color:cornflowerblue;
+	color:#fff;
+	text-align:center;
+	text-decoration:none;
+}
+
+#newpseudo, #newmail, #newpasswd, #newpasswd2, #newavatar, #envoyer
+{
+	display: none;
+}
+
+#return_img
+{
+	float:left;
+	width:50;
+	padding-left: 20px;
+	display: none;
+}
 
 body
 {
 	/*background-image: url("paysage.jpeg");*/
-	background-color: #cccccc;
+	background-color: #FFFFFF;
 	/*font-family: Impact, "Arial Black", Arial, Verdana, sans-serif;*/
 	font-family: 'Arial Black', Gadget, sans-serif;
 	font-size: small;
 	/*background-color: #FFFFFF;*/
 	color: #000000;
-	/*margin-top: 0px;*/
-
+	margin-top: 0px;
 }
 
-#input_edit
+.input_edit
 {
 	border-radius: 5px;
 	width : 200px;

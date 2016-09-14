@@ -15,12 +15,12 @@
 	$reqvalid = $pdo->prepare('SELECT validate FROM membres WHERE id = ?');
 	$reqvalid->execute(array($_SESSION['id']));
 	$valid = $reqvalid->fetch();
-	// if ($valid[0] == 0)
-	// {
-	// 	$_SESSION['erreur'] = "Valide ton compte avant de te connecter !";
-	// 	echo $_SESSION['erreur'];
-	// 	exit ;
-	// }
+	if ($valid[0] == 0)
+	{
+		$_SESSION['erreur'] = "Valide ton compte avant de te connecter !";
+		echo $_SESSION['erreur'];
+		exit ;
+	}
 	$requser = $pdo->prepare('SELECT * FROM membres');
 	$requser->execute(array());
 	$userinfo = $requser->fetch();
@@ -43,8 +43,8 @@
 			{
 				$reqcomment = $pdo->prepare('SELECT * FROM comment WHERE membre_id = ?');
 				$reqcomment->execute(array($data['id']));
-				echo " <form method='POST' action='comment.php'><div ='div_comment' class='div_comment'>
-				<img width=25 src='./images/cross.png' style='position:absolute' onClick='deleteImg(".$_SESSION['id'].", ".$data['membre_id'].", ".$data['id'].")'/>
+				echo " <form method='POST' action='comment.php'><div class='div_comment'>
+				<img class='cross_img' width=25 src='./images/cross.png' onClick='deleteImg(".$_SESSION['id'].", ".$data['membre_id'].", ".$data['id'].")'/>
 				<img class='photos_filtre' src='" . $data["image"] . "' width=250 height=200/>'";
 				while ($data2 = $reqcomment->fetch())
 				{
@@ -82,6 +82,7 @@
 				// echo "<a href='cam.php'>Vous n'avez pas de photos. Veuillez en prendre une !</a>";
 			}
 		?>
+
 		<script src="gallery.js"></script>
 	</body>
 </html>

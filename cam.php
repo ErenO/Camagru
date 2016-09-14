@@ -13,14 +13,14 @@
 	$reqvalid = $pdo->prepare('SELECT validate FROM membres WHERE id = ?');
 	$reqvalid->execute(array($_SESSION['id']));
 	$valid = $reqvalid->fetch();
-	// if ($valid[0] == 0)
-	// {
-	// 	$_SESSION['erreur'] = "Valide ton compte avant de te connecter !";
-	// 	echo $_SESSION['erreur'];
-	// 	exit ;
-	// }
+	if ($valid[0] == 0)
+	{
+		$_SESSION['erreur'] = "Valide ton compte avant de te connecter !";
+		echo $_SESSION['erreur'];
+		exit ;
+	}
 
-	if(isset($_GET['id']) AND $_GET['id'] > 0)
+	if (isset($_GET['id']) AND $_GET['id'] > 0)
 	{
 		$getid = intval($_GET['id']);
 		if (empty($_SESSION['id']))
@@ -57,10 +57,20 @@
 		<?php
 			echo $_SESSION['message'];
 			$_SESSION['message'] = "";
+			// if (isset($_SESSION['id']))
+			// {
+			// 	echo $_SESSION['id'];
+			// }
+			// else
+			// {
+			// 	echo "rien";
+			// }
+			// echo $_SESSION['loggued_on_user'];
 		?>
 		<div id="cam">
 			<img id="chevron_gauche" src="images/left-arrow.png"/>
 			<div class="booth">
+				<!-- <input type="hidden" id="title" value="connard"/> -->
 				<img id="filtre" src="filtres/1.png" value=""  />
 				<video id="video" width="640" height="480" autoplay></video>
 				<a href="#" id="snap" class="booth-capture-button">Take photo</a>
@@ -74,7 +84,7 @@
 			<img id="chevron_droit" src="images/right-arrow.png"/>
 		</div>
 			<div id="photos">
-				<h2>Photos</h2>
+				<h2><img id="img_photo" src="images/photo.png"  /> Photos</h2>
 				<?php
 				while ($data = $requser->fetch())
 				{

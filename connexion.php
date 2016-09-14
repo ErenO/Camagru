@@ -10,7 +10,8 @@
 			$requser = $pdo->prepare("SELECT * FROM membres WHERE mail = ? AND motdepasse = ?");
 			$requser->execute(array($mailconnect, $mdpconnect));
 			$userexist = $requser->rowCount();
-			if ($userexist == 1) {
+			if ($userexist == 1)
+			{
 				$userinfo = $requser->fetch();
 				$_SESSION['id'] = $userinfo['id'];
 				$_SESSION['pseudo'] = $userinfo['pseudo'];

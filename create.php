@@ -111,7 +111,7 @@
 			}
 			else
 			{
-				$_SESSION['erreur'] = $pseudolength."Votre mot de passe doit contenir au minimum 6 caractères";
+				$_SESSION['erreur'] = "Votre mot de passe doit contenir au minimum 6 caractères";
 			}
 		}
 		else

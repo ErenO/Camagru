@@ -7,14 +7,22 @@
 	padding-top: 20px;
 }*/
 
+/*@font-face
+{
+	font-family: "open-sans";
+	src: url("OpenSans-Regular.ttf");
+}*/
 
 
-body{
-margin:0px;
+body
+{
+	margin: 0px;
 }
-#header{
-height:120px;
-background:#DF514C;
+
+#header
+{
+	height: 80px;
+	background: #DF514C;
 }
 
 #titre_principal
@@ -54,6 +62,7 @@ nav ul
 
 nav li
 {
+	font-family: "open-sans";
 	/*margin-right: 15px;*/
 }
 
