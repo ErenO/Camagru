@@ -66,11 +66,8 @@
 				$reqlikes = $pdo->prepare('SELECT COUNT(*) FROM likes WHERE photo_id = ?');
 				$reqlikes->execute(array($data['id']));
 				$likeAll = $reqlikes->fetch();
-				$image = $data['image'];
-				$id = $data['id'];
 				echo "
 				<p class='link_comment' id=link".$data['id']." onClick='comment_display(".$data['id'].")'>See comments</p>
-				<input id='photo_previous".$data['id']."' class='photo_id' type='hidden' name='".$previous_id."' value='" . $previous_id . "' style='display:block'/>
 				<input id='photo".$data['id']."' class='photo_id' type='hidden' name='numero1' value='" . $data['image'] . "' style='display:block'/>
 				<input id='text".$data['id']."' class='text_area' type='text' name='comment' value='' />
 				<button id='btn".$data['id']."' class='btn'>Envoyer</button>
@@ -80,8 +77,6 @@
 				</p>
 				</div>
 				</form>";
-				$previous_id = $data['id'];
-				$previous_image = $data['image'];
 				$i += 1;
 			}
 			if ($i == 0)
@@ -93,7 +88,10 @@
 		<div id="div_center">
 			<div>
 				<?php
-				echo "<img id='big_photo' src='' width=640 height=480/>'";
+				echo " <form method='POST' action='comment.php'>";
+				echo "
+				<img id='cross_finish' class='cross_img' width=25 src='./images/cross.png' onClick='finish_display()'/>
+				<img id='big_photo' src='' width=640 height=480/>'";
 				?>
 			</div>
 			<input id="hidid" type="hidden" name="hidid" value=""  />

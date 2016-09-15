@@ -71,11 +71,10 @@ function input_display(id)
 	var btn_id = "btn" + String(id);
 	var text_id = "text" + String(id);
 	var div_id = "div" + String(id);
-	alert(coeur_id);
+	// alert(coeur_id);
 	// document.getElementsByClassName("div_comment").style.display = 'block';
 	// document.getElementById(div_id).style.display = 'block';
 	var photo_id = "photo" + String(id);
-
 	document.getElementById(coeur_id).style.display = 'block';
 	document.getElementById(btn_id).style.display = 'block';
 	document.getElementById(text_id).style.display = 'block';
@@ -83,27 +82,12 @@ function input_display(id)
 	document.getElementById("big_photo").src = document.getElementById(photo_id).value;
 	document.getElementById("div_center").style.display = 'inline';
 	document.getElementById("hidid").value = id;
-
 	// document.getElementById("upload").style.display = 'none';
 }
 
-function	left_arrow()
+function	finish_display()
 {
-	var id_prev = document.getElementById("hidid").value;
-	var photo_id = "photo_previous" + String(id_prev);
-	alert(photo_id);
-	document.getElementById("big_photo").src = document.getElementById(photo_id).value;
-}
-
-function	right_arrow()
-{
-	var id = document.getElementById("hidid").value;
-	// alert(id);
-	var photo = "photo_previous" + String(id);
-	var id_next = document.getElementById(photo).value;
-	alert(id_next);
-	var photo_next = "photo" + String(id_next);
-	document.getElementById("big_photo").src = document.getElementById(photo_next).value;
+	document.getElementById("div_center").style.display = 'none';
 }
 
 function comment_display(id)
