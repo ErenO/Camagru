@@ -1,75 +1,46 @@
 <?php
 	session_start();
 ?>
-
 <html>
 	<head>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="CSS/style.css" />
+		<link async href="http://fonts.googleapis.com/css?family=Advent%20Pro" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
 		<title>Le projet Camagru</title>
 	</head>
 	<body>
-	<a href="connexion.php">Déjà un compte ?</a>
+		<div id="link_connect">
+			<a href="connexion.php">Connexion</a>
+		</div>
 		<div id="inscription_div" align="center">
-			<h2 id="inscription_text">Inscription</h2>
-			<br /><br />
+			<!-- <h2 id="inscription_text">Inscription</h2>
+			<br /> -->
 			<form method="POST" action="create.php">
-				<table>
-					<tr>
-						<td align="right">
-							<label for="pseudo">Pseudo :</label>
-						</td>
-						<td>
-							<input type="text" placeholder="Votre pseudo" id="pseudo" name="pseudo" value="<?php if (isset($pseudo)) { echo $pseudo; } ?>" class="input_inscription"/>
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label for="mail">Mail :</label>
-						</td>
-						<td>
-							<input type="email" placeholder="Votre mail" id="mail" name="mail" value="<?php if (isset($mail)) { echo $mail; } ?>" class="input_inscription" />
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label for="mail2">Confirmation du mail :</label>
-						</td>
-						<td>
-							<input type="email" placeholder="Confirmez votre mail" id="mail2" name="mail2" value="<?php if (isset($mail2)) { echo $mail2; } ?>" class="input_inscription" />
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label for="mdp">Mot de passe :</label>
-						</td>
-						<td>
-							<input type="password" placeholder="Votre mot de passe" id="mdp" name="mdp" class="input_inscription" />
-						</td>
-					</tr>
-					<tr>
-						<td align="right">
-							<label for="mdp2">Confirmation du mot de passe :</label>
-						</td>
-						<td>
-							<input type="password" placeholder="Confirmez votre mdp" id="mdp2" name="mdp2" class="input_inscription"/>
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td align="center">
-							<br />
-							<input type="submit" name="forminscription" value="Inscription" id="submit" />
-						</td>
-					</tr>
-				</table>
+			<label id="top" for="pseudo">Pseudo :</label>
+			<input type="text" placeholder="Votre pseudo" id="pseudo" name="pseudo" value="<?php if (isset($pseudo)) { echo $pseudo; } ?>" class="input_inscription"/>
+			<label for="mail">Mail :</label>
+			<input type="email" placeholder="Votre mail" id="mail" name="mail" value="<?php if (isset($mail)) { echo $mail; } ?>" class="input_inscription" />
+			<label for="mail2">Confirmation du mail :</label>
+			<input type="email" placeholder="Confirmez votre mail" id="mail2" name="mail2" value="<?php if (isset($mail2)) { echo $mail2; } ?>" class="input_inscription" />
+			<label for="mdp">Mot de passe :</label>
+			<input type="password" placeholder="Votre mot de passe" id="mdp" name="mdp" class="input_inscription" />
+			<label for="mdp2">Confirmation du mot de passe :</label>
+			<input type="password" placeholder="Confirmez votre mot de passe" id="mdp2" name="mdp2" class="input_inscription"/>
+			<br />
+			<input type="submit" name="forminscription" value="Inscription" id="submit"/>
 			</form>
-			<?php
-			if (isset($_SESSION['erreur'])) {
-				echo '<font color="white">'.$_SESSION['erreur']."</font>";
-				$_SESSION['erreur'] = '';
-			}
-			?>
+		</div>
+		<div id="message_inscription">
+			<center>
+				<p id="text_info">
+					<?php
+					if (isset($_SESSION['erreur'])) {
+						echo '<font color="red">'.$_SESSION['erreur']."</font>";
+						$_SESSION['erreur'] = '';
+					}
+					?>
+				</p>
+			</center>
 		</div>
 	</body>
 </html>

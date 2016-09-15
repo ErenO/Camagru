@@ -12,6 +12,8 @@
 	include ("setup.php");
 
 	$i = 0;
+	$previous_id = 0;
+	$previous_image = "";
 	$reqvalid = $pdo->prepare('SELECT validate FROM membres WHERE id = ?');
 	$reqvalid->execute(array($_SESSION['id']));
 	$valid = $reqvalid->fetch();
@@ -43,7 +45,7 @@
 			{
 				$reqcomment = $pdo->prepare('SELECT * FROM comment WHERE membre_id = ?');
 				$reqcomment->execute(array($data['id']));
-				echo " <form method='POST' action='comment.php'><div class='div_comment'>
+				echo " <form method='POST' action='comment.php'><div class='div_comment' id='div".$data['id']."' onClick='input_display(".$data['id'].")'>
 				<img class='cross_img' width=25 src='./images/cross.png' onClick='deleteImg(".$_SESSION['id'].", ".$data['membre_id'].", ".$data['id'].")'/>
 				<img class='photos_filtre' src='" . $data["image"] . "' width=250 height=200/>'";
 				while ($data2 = $reqcomment->fetch())
@@ -54,7 +56,7 @@
 						AND membres.id = comment.post_id');
 						$reqpseudo->execute(array($data2['id']));
 						$pseudo = $reqpseudo->fetch();
-					 echo "<p class='comment' id='".$data['id']."' style='display:block'>";
+					 echo "<p class='comment' id='comment".$data['id']."'>";
 					 echo $pseudo['pseudo']. ": ";
 					 echo $data2['comment']."</p>";
 				}
@@ -64,16 +66,22 @@
 				$reqlikes = $pdo->prepare('SELECT COUNT(*) FROM likes WHERE photo_id = ?');
 				$reqlikes->execute(array($data['id']));
 				$likeAll = $reqlikes->fetch();
+				$image = $data['image'];
+				$id = $data['id'];
 				echo "
-				<input class='photo_id' type='hidden' name='numero' value='" . $data['id'] . "' style='display:block'/>
-				<input class='text_area' type='text' name='comment' value='' style='display:block'/>
-				<button class='btn'>Envoyer</button>
+				<p class='link_comment' id=link".$data['id']." onClick='comment_display(".$data['id'].")'>See comments</p>
+				<input id='photo_previous".$data['id']."' class='photo_id' type='hidden' name='".$previous_id."' value='" . $previous_id . "' style='display:block'/>
+				<input id='photo".$data['id']."' class='photo_id' type='hidden' name='numero1' value='" . $data['image'] . "' style='display:block'/>
+				<input id='text".$data['id']."' class='text_area' type='text' name='comment' value='' />
+				<button id='btn".$data['id']."' class='btn'>Envoyer</button>
 				</br>
 				<p class='coeur' id='coeur".$data['id']."' onClick='reply_click(".$_SESSION['id'].", ".$likes[0].", ".$data['id'].")'>
 				<img src='coeur.png' style='display:block'/> ".$likeAll[0]."
 				</p>
 				</div>
 				</form>";
+				$previous_id = $data['id'];
+				$previous_image = $data['image'];
 				$i += 1;
 			}
 			if ($i == 0)
@@ -82,7 +90,14 @@
 				// echo "<a href='cam.php'>Vous n'avez pas de photos. Veuillez en prendre une !</a>";
 			}
 		?>
-
+		<div id="div_center">
+			<div>
+				<?php
+				echo "<img id='big_photo' src='' width=640 height=480/>'";
+				?>
+			</div>
+			<input id="hidid" type="hidden" name="hidid" value=""  />
+		</div>
 		<script src="gallery.js"></script>
 	</body>
 </html>

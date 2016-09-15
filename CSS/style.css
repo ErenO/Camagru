@@ -1,57 +1,114 @@
 #inscription_div
 {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	border-radius:20px;
-	display:block;
+	/*display:block;
 	margin-left:auto;
-	margin-right:auto;
+	margin-right:auto;*/
 	/*box-shadow: 8px 8px 0px #101010;*/
 	/*align: center;*/
-	margin-top:20em;
-	width: 500px;
-	height: 350px;
+	/*margin-top:20em;*/
+	color:white;
+	width: 300px;
+	height: 450px;
 	background-color: #DF514C;
 	border : 3px solid black;
 	/*line-height: 5em;*/
 }
 
-.redirection_connection
+#link_connect
 {
+	display: block;
+	color: #DF514C;
+	/*position: absolute;*/
+	/*margin-top: 20px;*/
+	/*margin-left: 20px;*/
 	float:right;
-	display:block;
-	margin-top: 10px;
 }
-/*
-#inscription_text
-{
-	padding-top:20px;
-}*/
 
-/*#submit*/
-/*{*/
-
-/*}*/
 
 .input_inscription
 {
 	border-radius: 5px;
-	width : 200px;
-	height: 20px;
+	width : 230px;
+	height: 23px;
+}
+
+label, input
+{
+	margin-top: 10px;
+	display: block;
+}
+
+#top
+{
+	margin-top: 40px;
+}
+
+#submit
+{
+	margin-top: 20px;
 }
 
 input[type=submit]
 {
-	background-color: #4CAF50;
-	border: none;
-	color: white;
-	padding: 10px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 12px;
-	margin: 4px 2px;
+	display: block;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	float: none;
+	z-index: auto;
+	width: 150px;
+	height: 30px;
+	position: static;
 	cursor: pointer;
-	border-radius: 12px;
-	border : 1px solid black;
+	opacity: 1;
+	margin: 0 auto;
+	padding: 0;
+	overflow: visible;
+	border: 2px solid rgb(30,205,151);
+	-webkit-border-radius: 40px;
+	border-radius: 40px;
+	font: normal 19px/28px "Advent Pro", Helvetica, sans-serif;
+	color: rgb(30, 205, 151);
+	text-align: center;
+	-o-text-overflow: clip;
+	text-overflow: clip;
+	letter-spacing: 1px;
+	background: rgba(0,0,0,0);
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	text-shadow: none;
+	-webkit-transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+	-moz-transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+	-o-transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+	transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+	-webkit-transform: none;
+	transform: none;
+	-webkit-transform-origin: 50% 50% 0;
+	transform-origin: 50% 50% 0;
+}
+
+#message_inscription
+{
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius:20px;
+	width:400px;
+	margin-top: 30px;
+	height: 100px;
+	/*background: red;*/
+}
+
+#text_info
+{
+	margin:auto;
+	margin-top: 30px;
 }
 
 body
@@ -63,7 +120,7 @@ body
 	font-size: small;
 	/*background-color: #FFFFFF;*/
 	color: #000000;
-	margin-top: 0px;
+	/*margin-top: 0px;*/
 }
 
 /*body

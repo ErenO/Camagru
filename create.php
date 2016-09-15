@@ -36,22 +36,15 @@
 		if (!empty($_POST['pseudo']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2']))
 		{
 			$pseudolength = strlen($pseudo);
-			$reqverif = $pdo->prepare('SELECT pseudo FROM membres');
-			$reqverif->execute();
-			while ($pseudoVerif = $reqverif->fetch())
-			{
-				if ($pseudoVerif[0] = $pseudo)
-				{
-					$pseudoValid = 1;
-				}
-			}
-			$pseudoValid = 0;
+			$reqverif = $pdo->prepare('SELECT * FROM membres WHERE pseudo = ?');
+			$reqverif->execute(array($pseudo));
+			$pseudoVerif = $reqverif->rowCount();
 			if ($mdpLength > 5)
 			{
 				if ($indexNum > 0 && $indexMin > 0 && $indexMaj > 0)
 				{
-					// if ($pseudoValid == 1)
-					// {
+					if ($pseudoVerif == 0)
+					{
 						if ($pseudolength >= 2 && $pseudolength <= 255)
 						{
 							if ($mail == $mail2)
@@ -98,11 +91,11 @@
 						{
 							$_SESSION['erreur'] = "Votre pseudo doit avoir entre 2 et 255 caractères !";
 						}
-					// }
-					// else
-					// {
-					// 	$_SESSION['erreur'] = "Pseudo déjà utilisé !";
-					// }
+					}
+					else
+					{
+						$_SESSION['erreur'] = "Pseudo déjà utilisé !";
+					}
 				}
 				else
 				{

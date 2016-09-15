@@ -64,13 +64,56 @@ function postDelete(id)
 	form.submit();
 }
 
-(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+function input_display(id)
+{
+	var coeur_id = "coeur" + String(id);
+	var link_id = "link" + String(id);
+	var btn_id = "btn" + String(id);
+	var text_id = "text" + String(id);
+	var div_id = "div" + String(id);
+	alert(coeur_id);
+	// document.getElementsByClassName("div_comment").style.display = 'block';
+	// document.getElementById(div_id).style.display = 'block';
+	var photo_id = "photo" + String(id);
+
+	document.getElementById(coeur_id).style.display = 'block';
+	document.getElementById(btn_id).style.display = 'block';
+	document.getElementById(text_id).style.display = 'block';
+	document.getElementById(link_id).style.display = 'block';
+	document.getElementById("big_photo").src = document.getElementById(photo_id).value;
+	document.getElementById("div_center").style.display = 'inline';
+	document.getElementById("hidid").value = id;
+
+	// document.getElementById("upload").style.display = 'none';
+}
+
+function	left_arrow()
+{
+	var id_prev = document.getElementById("hidid").value;
+	var photo_id = "photo_previous" + String(id_prev);
+	alert(photo_id);
+	document.getElementById("big_photo").src = document.getElementById(photo_id).value;
+}
+
+function	right_arrow()
+{
+	var id = document.getElementById("hidid").value;
+	// alert(id);
+	var photo = "photo_previous" + String(id);
+	var id_next = document.getElementById(photo).value;
+	alert(id_next);
+	var photo_next = "photo" + String(id_next);
+	document.getElementById("big_photo").src = document.getElementById(photo_next).value;
+}
+
+function comment_display(id)
+{
+	// alert('hello');
+	var link_id = "link" + String(id);
+	var comment_id = "comment" + String(id);
+	document.getElementById(link_id).style.display = 'none';
+	document.getElementById(comment_id).style.display = 'block';
+}
 
 // document.getElementById("form").style.display = 'inline';
 // document.getElementById("upload").style.display = 'none';
