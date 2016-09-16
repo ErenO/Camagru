@@ -41,6 +41,7 @@
 	</head>
 	<body>
 		<?php
+		echo $_POST['mavariable1'];
 			while ($data = $reqpost->fetch())
 			{
 				$reqcomment = $pdo->prepare('SELECT * FROM comment WHERE membre_id = ?');
@@ -68,9 +69,10 @@
 				$likeAll = $reqlikes->fetch();
 				echo "
 				<p class='link_comment' id=link".$data['id']." onClick='comment_display(".$data['id'].")'>See comments</p>
-				<input id='photo".$data['id']."' class='photo_id' type='hidden' name='numero1' value='" . $data['image'] . "' style='display:block'/>
+				<input id='img".$data['id']."' class='photo_id' type='hidden' name='numero' value='" . $data['image'] . "' style='display:block'/>
+				<input id='photo".$data['id']."' class='photo_id' type='hidden' name='numero' value='" . $data['id'] . "' style='display:block'/>
 				<input id='text".$data['id']."' class='text_area' type='text' name='comment' value='' />
-				<button id='btn".$data['id']."' class='btn'>Envoyer</button>
+				<button id='btn".$data['id']."' class='btn' onClick='print_text(".$data['id'].")'>Envoyer</button>
 				</br>
 				<p class='coeur' id='coeur".$data['id']."' onClick='reply_click(".$_SESSION['id'].", ".$likes[0].", ".$data['id'].")'>
 				<img src='coeur.png' style='display:block'/> ".$likeAll[0]."
@@ -86,15 +88,22 @@
 			}
 		?>
 		<div id="div_center">
+			<input id="hidid" type="hidden" name="hidid" value=""  />
+			<?php
+				echo " <form method='POST' action='comment.php'>";
+				echo " <form method='POST' action='comment.php'>";
+			?>
 			<div>
 				<?php
-				echo " <form method='POST' action='comment.php'>";
-				echo "
-				<img id='cross_finish' class='cross_img' width=25 src='./images/cross.png' onClick='finish_display()'/>
-				<img id='big_photo' src='' width=640 height=480/>'";
+					echo "
+					<img id='cross_finish' class='cross_img' width=25 src='./images/cross.png' onClick='finish_display()'/>
+					<img id='big_photo' src='' width=640 height=480/>'";
 				?>
 			</div>
-			<input id="hidid" type="hidden" name="hidid" value=""  />
+			<?php
+				echo "<input id='text".$data['id']."' class='text_area' type='text' name='comment' value='' />
+				<button id='btn".$data['id']."' class='btn'>Envoyer onClick='print_text()'</button></form>";
+			?>
 		</div>
 		<script src="gallery.js"></script>
 	</body>
