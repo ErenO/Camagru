@@ -12,8 +12,6 @@
 	include ("setup.php");
 
 	$i = 0;
-	$previous_id = 0;
-	$previous_image = "";
 	$reqvalid = $pdo->prepare('SELECT validate FROM membres WHERE id = ?');
 	$reqvalid->execute(array($_SESSION['id']));
 	$valid = $reqvalid->fetch();
@@ -88,11 +86,6 @@
 			}
 		?>
 		<div id="div_center">
-			<input id="hidid" type="hidden" name="hidid" value=""  />
-			<?php
-				echo " <form method='POST' action='comment.php'>";
-				echo " <form method='POST' action='comment.php'>";
-			?>
 			<div>
 				<?php
 					echo "
@@ -100,10 +93,34 @@
 					<img id='big_photo' src='' width=640 height=480/>'";
 				?>
 			</div>
-			<?php
-				echo "<input id='text".$data['id']."' class='text_area' type='text' name='comment' value='' />
-				<button id='btn".$data['id']."' class='btn'>Envoyer onClick='print_text()'</button></form>";
-			?>
+			<div id="comment_big">
+				<form id='myForm'>
+				<input id="hidid" type="hidden" name="hidid" value="4"  />
+				<?php
+				// echo "hello";
+					if (isset($_POST['hidid']))
+					{
+						$id_big = intval($_POST['hidid']);
+						$reqcomment = $pdo->prepare('SELECT * FROM comment WHERE membre_id = ?');
+						$reqcomment->execute(array($id_big));
+						while ($data2 = $reqcomment->fetch())
+						{
+							$reqpseudo = $pdo->prepare('SELECT membres.pseudo
+								FROM membres, post, comment
+								WHERE comment.id = ?
+								AND membres.id = comment.post_id');
+								$reqpseudo->execute(array($data2['id']));
+								$pseudo = $reqpseudo->fetch();
+							 echo "<p class='comment' id='co";
+							 echo $pseudo['pseudo']. ": ";
+							 echo $data2['comment']."</p>";
+						}
+					}
+				?>
+				<input id="text_big" type='text' name='comment' value='' />
+				<button id='btn_big'>Envoyer</button>
+			</form>
+			</div>
 		</div>
 		<script src="gallery.js"></script>
 	</body>

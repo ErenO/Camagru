@@ -64,7 +64,7 @@
 											$userinfo = $pdo->prepare('SELECT id FROM membres WHERE pseudo = ?');
 											$userinfo->execute(array($pseudo));
 											$user = $userinfo->fetch();
-											send_mail("eren.ozdek@gmail.com", $key, $user[0]);
+											send_mail($mail, $key, $user[0]);
 											$_SESSION['erreur'] = "Votre compte a bien été créé ! <a href=\"connexion.php\">Me connecter</a>";
 										}
 										else

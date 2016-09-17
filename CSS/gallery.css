@@ -35,6 +35,26 @@
 	margin-left: 20px;
 }
 
+#comment_big
+{
+	height:300px;
+	width:640px;
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+}
+
+#text_big
+{
+	/*height:300px;
+	width:640px;*/
+	position: absolute;
+	top: 60%;
+	left: 40%;
+	/*transform: translate(-50%, -50%);*/
+}
 .photos_filtre
 {
 	margin : 20px;
@@ -52,25 +72,19 @@
 #big_photo
 {
 	position: absolute;
-	top: 20%;
+	top: 30%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
 
-#chevron_gauche
+#btn_big
 {
 	position: absolute;
-	top: 20%;
-	left: 20%;
-	transform: translate(-50%, -50%);
-}
+	top: 70%;
+	left: 45%;
+	position:block;
+	color: #000000;
 
-#chevron_droit
-{
-	position: absolute;
-	top: 20%;
-	left: 80%;
-	transform: translate(-50%, -50%);
 }
 
 .text_area
@@ -78,6 +92,7 @@
 	/*display: block;*/
 	width : 240px;
 	margin-left: 20px;
+	/*background: black;*/
 	border-radius: 5px;
 }
 

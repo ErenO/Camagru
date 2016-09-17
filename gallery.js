@@ -5,22 +5,21 @@
 // </form>
 //
 // <script>
-    var xhr = new XMLHttpRequest();
-
-    xhr.open('POST', 'gallery.php');
-
-    var myForm = document.getElementById('myForm'),
-        form = new FormData(myForm);
-
-    xhr.send(form);
-// </script>
-(function() {
-	var mavariable1 = "hellodvkljndrgklvndflkvnnfdkj";
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "gallery.php", true);
-	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xhr.send("mavariable1=" + escape(mavariable1));
-})();
+	xhr.open('POST', 'gallery.php');
+
+	var myForm = document.getElementById('myForm'),
+	form = new FormData(myForm);
+
+	xhr.send(form);
+// </script>
+// (function() {
+// 	var mavariable1 = "hellodvkljndrgklvndflkvnnfdkj";
+// 	var xhr = new XMLHttpRequest();
+// 	xhr.open("POST", "gallery.php", true);
+// 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+// 	xhr.send("mavariable1=" + escape(mavariable1));
+// })();
 function	reply_click(clicked_id, nb_like, photo_id)
 {
 	if (nb_like == 0)
@@ -105,6 +104,7 @@ function input_display(id)
 	document.getElementById("big_photo").src = photo_id;
 	document.getElementById("div_center").style.display = 'inline';
 	document.getElementById("hidid").value = id;
+	// postId(id);
 	// document.getElementById("upload").style.display = 'none';
 }
 
@@ -133,7 +133,7 @@ function	save_comment()
 	}
 }
 
-function postComment(numero, text)
+function	postComment(numero, text)
 {
 	var	params = [];
 	params["numero"] = numero;
@@ -156,6 +156,28 @@ function postComment(numero, text)
 	form.submit();
 }
 
+function	postId(id)
+{
+	var	params = [];
+
+	params["id"] = id;
+	method = "post";
+	var form = document.createElement("form");
+	form.setAttribute("method", method);
+	form.setAttribute("action", "./gallery.php");
+	for (var key in params)
+	{
+		if (params.hasOwnProperty(key)) {
+			var hiddenField = document.createElement("input");
+			hiddenField.setAttribute("type", "hidden");
+			hiddenField.setAttribute("name", key);
+			hiddenField.setAttribute("value", params[key]);
+			form.appendChild(hiddenField);
+		}
+	}
+	document.body.appendChild(form);
+	form.submit();
+}
 
 // document.getElementById("form").style.display = 'inline';
 // document.getElementById("upload").style.display = 'none';
