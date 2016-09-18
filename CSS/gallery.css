@@ -13,10 +13,15 @@
 	/*margin-bottom:200px;*/
 }
 
+.hide_comment
+{
+	display: none;
+	margin-left: 20px;
+}
+
 .comment
 {
 	display: none;
-	/*display: block;*/
 }
 
 .cross_img
@@ -35,26 +40,6 @@
 	margin-left: 20px;
 }
 
-#comment_big
-{
-	height:300px;
-	width:640px;
-	position: absolute;
-	top: 60%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: white;
-}
-
-#text_big
-{
-	/*height:300px;
-	width:640px;*/
-	position: absolute;
-	top: 60%;
-	left: 40%;
-	/*transform: translate(-50%, -50%);*/
-}
 .photos_filtre
 {
 	margin : 20px;
@@ -69,23 +54,6 @@
 	background-color:rgba(0, 0, 0, 0.7);
 }
 
-#big_photo
-{
-	position: absolute;
-	top: 30%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-#btn_big
-{
-	position: absolute;
-	top: 70%;
-	left: 45%;
-	position:block;
-	color: #000000;
-
-}
 
 .text_area
 {

@@ -44,9 +44,10 @@
 			{
 				$reqcomment = $pdo->prepare('SELECT * FROM comment WHERE membre_id = ?');
 				$reqcomment->execute(array($data['id']));
-				echo " <form method='POST' action='comment.php'><div class='div_comment' id='div".$data['id']."' onClick='input_display(".$data['id'].")'>
+				echo " <form method='POST' action='comment.php'><div class='div_comment' id='div".$data['id']."' >
 				<img class='cross_img' width=25 src='./images/cross.png' onClick='deleteImg(".$_SESSION['id'].", ".$data['membre_id'].", ".$data['id'].")'/>
-				<img class='photos_filtre' src='" . $data["image"] . "' width=250 height=200/>'";
+				<img class='photos_filtre' src='" . $data["image"] . "' width=250 height=200 onClick='input_display(".$data['id'].")'/>'
+				<p class='hide_comment' id=hide".$data['id']." onClick='comment_none(".$data['id'].")'>Masquer les commentaires</p>";
 				while ($data2 = $reqcomment->fetch())
 				{
 					$reqpseudo = $pdo->prepare('SELECT membres.pseudo
@@ -55,9 +56,9 @@
 						AND membres.id = comment.post_id');
 						$reqpseudo->execute(array($data2['id']));
 						$pseudo = $reqpseudo->fetch();
-					 echo "<p class='comment' id='comment".$data['id']."'>";
-					 echo $pseudo['pseudo']. ": ";
-					 echo $data2['comment']."</p>";
+						echo "<div> <p class='comment' class='comment".$data['id']."'>";
+						echo $pseudo['pseudo']. ": ";
+						echo $data2['comment']."</p></div>";
 				}
 				$reqlikes = $pdo->prepare('SELECT COUNT(*) FROM likes WHERE post_id = ? AND photo_id = ?');
 				$reqlikes->execute(array($_SESSION['id'], $data['id']));
@@ -85,43 +86,6 @@
 				// echo "<a href='cam.php'>Vous n'avez pas de photos. Veuillez en prendre une !</a>";
 			}
 		?>
-		<div id="div_center">
-			<div>
-				<?php
-					echo "
-					<img id='cross_finish' class='cross_img' width=25 src='./images/cross.png' onClick='finish_display()'/>
-					<img id='big_photo' src='' width=640 height=480/>'";
-				?>
-			</div>
-			<div id="comment_big">
-				<form id='myForm'>
-				<input id="hidid" type="hidden" name="hidid" value="4"  />
-				<?php
-				// echo "hello";
-					if (isset($_POST['hidid']))
-					{
-						$id_big = intval($_POST['hidid']);
-						$reqcomment = $pdo->prepare('SELECT * FROM comment WHERE membre_id = ?');
-						$reqcomment->execute(array($id_big));
-						while ($data2 = $reqcomment->fetch())
-						{
-							$reqpseudo = $pdo->prepare('SELECT membres.pseudo
-								FROM membres, post, comment
-								WHERE comment.id = ?
-								AND membres.id = comment.post_id');
-								$reqpseudo->execute(array($data2['id']));
-								$pseudo = $reqpseudo->fetch();
-							 echo "<p class='comment' id='co";
-							 echo $pseudo['pseudo']. ": ";
-							 echo $data2['comment']."</p>";
-						}
-					}
-				?>
-				<input id="text_big" type='text' name='comment' value='' />
-				<button id='btn_big'>Envoyer</button>
-			</form>
-			</div>
-		</div>
 		<script src="gallery.js"></script>
 	</body>
 </html>

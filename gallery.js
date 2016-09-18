@@ -1,25 +1,4 @@
-// <form id="myForm">
 
-    // <input id="myText" name="myText" type="text" value="Test ! Un, deux, un, deux !" />
-//
-// </form>
-//
-// <script>
-	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'gallery.php');
-
-	var myForm = document.getElementById('myForm'),
-	form = new FormData(myForm);
-
-	xhr.send(form);
-// </script>
-// (function() {
-// 	var mavariable1 = "hellodvkljndrgklvndflkvnnfdkj";
-// 	var xhr = new XMLHttpRequest();
-// 	xhr.open("POST", "gallery.php", true);
-// 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-// 	xhr.send("mavariable1=" + escape(mavariable1));
-// })();
 function	reply_click(clicked_id, nb_like, photo_id)
 {
 	if (nb_like == 0)
@@ -96,15 +75,21 @@ function input_display(id)
 	// document.getElementsByClassName("div_comment").style.display = 'block';
 	// document.getElementById(div_id).style.display = 'block';
 	var photo_id = "img" + String(id);
-	document.getElementById(coeur_id).style.display = 'block';
-	document.getElementById(btn_id).style.display = 'block';
-	document.getElementById(text_id).style.display = 'block';
-	document.getElementById(link_id).style.display = 'block';
-	photo_id = document.getElementById(photo_id).value;
-	document.getElementById("big_photo").src = photo_id;
-	document.getElementById("div_center").style.display = 'inline';
-	document.getElementById("hidid").value = id;
-	// postId(id);
+	var coeur_disp = document.getElementById(coeur_id).style.display;
+	if (coeur_disp != 'block')
+	{
+		document.getElementById(coeur_id).style.display = 'block';
+		document.getElementById(btn_id).style.display = 'block';
+		document.getElementById(text_id).style.display = 'block';
+		document.getElementById(link_id).style.display = 'block';
+	}
+	else
+	{
+		document.getElementById(coeur_id).style.display = 'none';
+		document.getElementById(btn_id).style.display = 'none';
+		document.getElementById(text_id).style.display = 'none';
+		document.getElementById(link_id).style.display = 'none';
+	}
 	// document.getElementById("upload").style.display = 'none';
 }
 
@@ -116,10 +101,23 @@ function	finish_display()
 function comment_display(id)
 {
 	// alert('hello');
+	var hide_id = "hide" + String(id);
 	var link_id = "link" + String(id);
 	var comment_id = "comment" + String(id);
 	document.getElementById(link_id).style.display = 'none';
-	document.getElementById(comment_id).style.display = 'block';
+	document.getElementsByClassName(comment_id).style.display = 'block';
+	document.getElementById(hide_id).style.display = 'block';
+}
+
+function comment_none(id)
+{
+	var hide_id = "hide" + String(id);
+	var link_id = "link" + String(id);
+	var comment_id = "comment" + String(id);
+	// document.getElementsByClassName(comment_id).style.display = "none";
+	document.getElementsByClassName(comment_id).style.display = 'none';
+	document.getElementById(hide_id).style.display = 'none';
+	document.getElementById(link_id).style.display = 'block';
 }
 
 function	save_comment()
