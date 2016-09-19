@@ -14,7 +14,7 @@
 			$userMail = $pdo->prepare('SELECT mail FROM membres WHERE id = ?');
 			$userMail->execute(array($_SESSION['id']));
 			$mail = $userMail->fetch();
-			send_comment("eren.ozdek@gmail.com", $_SESSION['pseudo']);
+			send_comment($mail[0], $_SESSION['pseudo']);
 		}
 	}
 	header('Location: gallery.php');

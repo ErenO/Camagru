@@ -1,7 +1,9 @@
 .div_comment
 {
-	display:inline-block;
+
 	float: left;
+	display: inline-block;
+	margin-left: 20px;
 	margin-bottom: 50px;
 	/*margin-top: 200px;*/
 }
@@ -15,6 +17,7 @@
 
 .hide_comment
 {
+	text-decoration:underline;
 	display: none;
 	margin-left: 20px;
 }
@@ -37,6 +40,7 @@
 
 .link_comment
 {
+	text-decoration:underline;
 	margin-left: 20px;
 }
 
@@ -54,7 +58,6 @@
 	background-color:rgba(0, 0, 0, 0.7);
 }
 
-
 .text_area
 {
 	/*display: block;*/
@@ -64,14 +67,15 @@
 	border-radius: 5px;
 }
 
-.btn {
+.btn
+{
 	margin-top: 5px;
 	margin-left: 20px;
 	background: #4AABDF;
 	font-family: Arial;
 	color: #FFFFFF;
 	font-size: 12px;
-	padding: 5px 10px 5px 10px;
+	padding: 5px 10px 5px 5px;
 	text-decoration: none;
 }
 

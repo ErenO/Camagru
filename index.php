@@ -13,8 +13,6 @@
 			<a href="connexion.php">Connexion</a>
 		</div>
 		<div id="inscription_div" align="center">
-			<!-- <h2 id="inscription_text">Inscription</h2>
-			<br /> -->
 			<form method="POST" action="create.php">
 			<label id="top" for="pseudo">Pseudo :</label>
 			<input type="text" placeholder="Votre pseudo" id="pseudo" name="pseudo" value="<?php if (isset($pseudo)) { echo $pseudo; } ?>" class="input_inscription"/>

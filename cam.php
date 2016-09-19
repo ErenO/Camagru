@@ -37,9 +37,6 @@
 	$userinfo = $requser->fetch();
 	$requser = $pdo->prepare('SELECT * FROM post WHERE membre_id = ? ORDER BY id DESC');
 	$requser->execute(array($_SESSION['id']));
-	// $data = $requser->fetch();
-	// $data2 = $requser->fetch();
-	// echo $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
@@ -55,25 +52,24 @@
 	</head>
 	<body>
 		<?php
-			echo $_SESSION['message'];
+			echo "<div id='show_msg'>
+				<center>
+					<p id='show_text_msg'>
+						".$_SESSION['message']."
+					</p>
+				</center>
+			</div>";
 			$_SESSION['message'] = "";
-			// if (isset($_SESSION['id']))
-			// {
-			// 	echo $_SESSION['id'];
-			// }
-			// else
-			// {
-			// 	echo "rien";
-			// }
-			// echo $_SESSION['loggued_on_user'];
 		?>
+		<p id="video_none">
+			Agrandi la fenêtre, si tu veux prendre une photo !
+		</p>
 		<div id="cam">
 			<img id="chevron_gauche" src="images/left-arrow.png"/>
 			<div class="booth">
-				<!-- <input type="hidden" id="title" value="connard"/> -->
 				<img id="filtre" src="filtres/1.png" value=""  />
 				<video id="video" width="640" height="480" autoplay></video>
-				<a href="#" id="snap" class="booth-capture-button">Take photo</a>
+				<a href="#" id="snap" class="booth-capture-button">Prendre une photo</a>
 				<input type="hidden" id="png" value="" />
 				<input type="hidden" id="snap_photo" value=""  />
 				<img id="filtre2" src="filtres/1.png" value=""  />
@@ -88,15 +84,13 @@
 				<?php
 				while ($data = $requser->fetch())
 				{
-						echo "<div class='photos_div'>
-							<img class='cross' width=25 src='./images/cross.png' onClick='deleteImg(".$data['id'].")'/>
-							<img src='" . $data["image"] . "' width=250 height=200/>'
-							</div>";
-				// echo "<img src='" . $data2["image"] . "' width=200 height=200/>'";
+					echo "<div class='photos_div'>
+						<img class='cross' width=25 src='./images/cross.png' onClick='deleteImg(".$data['id'].")'/>
+						<img src='" . $data["image"] . "' width=250 height=200/>'
+						</div>";
 				}
 				?>
 			</div>
-		<aside></aside>
 		<script src="cam.js"></script>
 	</body>
 </html>

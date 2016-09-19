@@ -4,11 +4,11 @@
 
 	if (isset($_POST['formconnexion']))
 	{
-		$mailconnect = htmlspecialchars($_POST['mailconnect']);
+		$pseudoconnect = htmlspecialchars($_POST['pseudoconnect']);
 		$mdpconnect = sha1($_POST['mdpconnect']);
-		if (!empty($mailconnect) AND !empty($mdpconnect)) {
-			$requser = $pdo->prepare("SELECT * FROM membres WHERE mail = ? AND motdepasse = ?");
-			$requser->execute(array($mailconnect, $mdpconnect));
+		if (!empty($pseudoconnect) AND !empty($mdpconnect)) {
+			$requser = $pdo->prepare("SELECT * FROM membres WHERE pseudo = ? AND motdepasse = ?");
+			$requser->execute(array($pseudoconnect, $mdpconnect));
 			$userexist = $requser->rowCount();
 			if ($userexist == 1)
 			{
@@ -21,7 +21,7 @@
 			}
 			else
 			{
-				$_SESSION['erreur'] = "Mauvais mail ou mot de passe !";
+				$_SESSION['erreur'] = "Mauvais pseudo ou mot de passe !";
 			}
 		}
 		else
@@ -42,7 +42,7 @@
 			<h2>Connexion</h2>
 			<br /><br />
 			<form method="POST" action="">
-				<input type="email" name="mailconnect" placeholder="Mail" class="input_connexion"/>
+				<input type="text" name="pseudoconnect" placeholder="Pseudo" class="input_connexion"/>
 				<input type="password" name="mdpconnect" placeholder="Mot de passe" class="input_connexion"//>
 				<br /><br />
 				<input type="submit" name="formconnexion" value="Connexion" />

@@ -36,7 +36,8 @@ window.addEventListener("DOMContentLoaded", function() {
 			video.play();
 		}, errBack);
 	}
-	document.getElementById("video").src.onchange = function() {
+	document.getElementById("video").src.onchange = function()
+	{
 		ok = 1;
 	};
 	document.getElementById("snap").addEventListener("click", function()
@@ -47,24 +48,8 @@ window.addEventListener("DOMContentLoaded", function() {
 			context.drawImage(video, 0, 0, 640, 480);
 		}
 	});
-	// document.getElementById("cancel").addEventListener("click", function()
-	// {
-	// 	document.getElementById('upload').value = [];
-	// 	numerofiltre = 1;
-	// 	img = 0;
-	// 	document.getElementById("upload").value = "";
-	// });
-	//
-	// document.getElementById("video").addEventListener("click", function() {
-	// 	numerofiltre++;
-	// 	if (numerofiltre >= 10)
-	// 		numerofiltre = 1;
-	// 	document.getElementById("filtre").src = "filtres/" + numerofiltre + ".png";
-	// 	document.getElementById("png").value = "filtres/" + numerofiltre + ".png";
-	// 	document.getElementById("nomfiltre").innerHTML = filternames[numerofiltre];
-	// });
-	//
-	document.getElementById("chevron_gauche").addEventListener("click", function() {
+	document.getElementById("chevron_gauche").addEventListener("click", function()
+	{
 		numerofiltre--;
 		if (numerofiltre < 1)
 			numerofiltre = 7;
@@ -80,14 +65,6 @@ window.addEventListener("DOMContentLoaded", function() {
 		document.getElementById("filtre2").src = "filtres/" + numerofiltre + ".png";
 		document.getElementById("png").value = "filtres/" + numerofiltre + ".png";
 	});
-	// document.getElementById("canvas").addEventListener("click", function() {
-	// 	numerofiltre++;
-	// 	if (numerofiltre >= 10)
-	// 		numerofiltre = 1;
-	// 	document.getElementById("filtre").src = "filtres/" + numerofiltre + ".png";
-	// 	document.getElementById("png").value = "../filtres/" + numerofiltre + ".png";
-	// 	document.getElementById("nomfiltre").innerHTML = filternames[numerofiltre];
-	// });
 	document.getElementById("upload").onchange = function() {
 		var fileInput = document.getElementById("upload");
 		var reader  = new FileReader();
@@ -114,15 +91,6 @@ window.addEventListener("DOMContentLoaded", function() {
 		}
 	};
 }, false);
-// function masquer(id)
-// {
-// 	document.getElementById(id).style.display = 'none';
-// }
-//
-// function afficher(id)
-// {
-// 	document.getElementById(id).style.display = 'inline';
-// }
 
 function postthat()
 {
@@ -154,6 +122,10 @@ function postthat()
 		}
 		document.body.appendChild(form);
 		form.submit();
+	}
+	else
+	{
+		document.getElementById('show_text_msg').innerHTML = "Prend ou télécharge une photo et met un filtre !";
 	}
 }
 

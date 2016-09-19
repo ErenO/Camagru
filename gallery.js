@@ -67,17 +67,28 @@ function postDelete(id)
 
 function input_display(id)
 {
+	var div_id = "div" + String(id);
 	var coeur_id = "coeur" + String(id);
 	var link_id = "link" + String(id);
 	var btn_id = "btn" + String(id);
 	var text_id = "text" + String(id);
 	var div_id = "div" + String(id);
-	// document.getElementsByClassName("div_comment").style.display = 'block';
-	// document.getElementById(div_id).style.display = 'block';
 	var photo_id = "img" + String(id);
+	var comment_id = "comment" + String(id);
+	var hide_id = "hide" + String(id);
 	var coeur_disp = document.getElementById(coeur_id).style.display;
+	var elem_none = "photo_info" + id;
+	var elements = document.getElementsByClassName('photo_info');
+	// for (var i = 0, length = elements.length; i < length; i++) {
+	// 	if (!elem_none)
+	// 		elements[i].style.display = 'none';
+		// alert(elements[i].id);
+	// }
+	// alert(document.getElementsByClassName('myClassName')[0].id);
 	if (coeur_disp != 'block')
 	{
+		// document.getElementById(div_id).style.display = 'inline';
+		document.getElementById(div_id).style.float = 'none';
 		document.getElementById(coeur_id).style.display = 'block';
 		document.getElementById(btn_id).style.display = 'block';
 		document.getElementById(text_id).style.display = 'block';
@@ -85,12 +96,14 @@ function input_display(id)
 	}
 	else
 	{
+		document.getElementById(hide_id).style.display = 'none';
+		document.getElementById(comment_id).style.display = 'none';
+		document.getElementById(div_id).style.float = 'left';
 		document.getElementById(coeur_id).style.display = 'none';
 		document.getElementById(btn_id).style.display = 'none';
 		document.getElementById(text_id).style.display = 'none';
 		document.getElementById(link_id).style.display = 'none';
 	}
-	// document.getElementById("upload").style.display = 'none';
 }
 
 function	finish_display()
@@ -100,12 +113,11 @@ function	finish_display()
 
 function comment_display(id)
 {
-	// alert('hello');
 	var hide_id = "hide" + String(id);
 	var link_id = "link" + String(id);
 	var comment_id = "comment" + String(id);
 	document.getElementById(link_id).style.display = 'none';
-	document.getElementsByClassName(comment_id).style.display = 'block';
+	document.getElementById(comment_id).style.display = 'block';
 	document.getElementById(hide_id).style.display = 'block';
 }
 
@@ -114,8 +126,7 @@ function comment_none(id)
 	var hide_id = "hide" + String(id);
 	var link_id = "link" + String(id);
 	var comment_id = "comment" + String(id);
-	// document.getElementsByClassName(comment_id).style.display = "none";
-	document.getElementsByClassName(comment_id).style.display = 'none';
+	document.getElementById(comment_id).style.display = 'none';
 	document.getElementById(hide_id).style.display = 'none';
 	document.getElementById(link_id).style.display = 'block';
 }
@@ -176,10 +187,3 @@ function	postId(id)
 	document.body.appendChild(form);
 	form.submit();
 }
-
-// document.getElementById("form").style.display = 'inline';
-// document.getElementById("upload").style.display = 'none';
-// document.getElementById("snap").style.display = 'none';
-// document.getElementById("cancel").style.display = 'inline';
-// document.getElementById("video").style.display = 'none';
-// document.getElementById("canvas").style.display = 'inline';
