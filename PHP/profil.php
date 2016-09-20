@@ -8,10 +8,8 @@
 	}
 	require_once "header.php";
 	require_once "footer.html";
-	include "setup.php";
+	include ("../config/setup.php");
 
-	// $reqpost = $pdo->prepare('SELECT * FROM post ORDER BY id DESC');
-	// $reqpost->execute(array());
 	$reqvalid = $pdo->prepare('SELECT validate FROM membres WHERE id = ?');
 	$reqvalid->execute(array($_SESSION['id']));
 	$valid = $reqvalid->fetch();
@@ -27,8 +25,6 @@
 		$requser = $pdo->prepare('SELECT * FROM membres WHERE id = ?');
 		$requser->execute(array($getid));
 		$userinfo = $requser->fetch();
-		// $_SESSION['pseudo'] = $userinfo['pseudo'];
-
 		if (empty($_SESSION['id']))
 		{
 			$_SESSION['id'] = $getid;

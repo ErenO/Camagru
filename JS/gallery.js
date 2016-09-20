@@ -15,7 +15,7 @@ function postForm(id, photo_id)
 	method = "post";
 	var form = document.createElement("form");
 	form.setAttribute("method", method);
-	form.setAttribute("action", "./like.php");
+	form.setAttribute("action", "../PHP/like.php");
 	for (var key in params)
 	{
 		if (params.hasOwnProperty(key)) {
@@ -50,7 +50,7 @@ function postDelete(id)
 	method = "post";
 	var form = document.createElement("form");
 	form.setAttribute("method", method);
-	form.setAttribute("action", "./delete.php");
+	form.setAttribute("action", "../PHP/delete.php");
 	for (var key in params)
 	{
 		if (params.hasOwnProperty(key)) {
@@ -79,15 +79,8 @@ function input_display(id)
 	var coeur_disp = document.getElementById(coeur_id).style.display;
 	var elem_none = "photo_info" + id;
 	var elements = document.getElementsByClassName('photo_info');
-	// for (var i = 0, length = elements.length; i < length; i++) {
-	// 	if (!elem_none)
-	// 		elements[i].style.display = 'none';
-		// alert(elements[i].id);
-	// }
-	// alert(document.getElementsByClassName('myClassName')[0].id);
 	if (coeur_disp != 'block')
 	{
-		// document.getElementById(div_id).style.display = 'inline';
 		document.getElementById(div_id).style.float = 'none';
 		document.getElementById(coeur_id).style.display = 'block';
 		document.getElementById(btn_id).style.display = 'block';
@@ -150,7 +143,7 @@ function	postComment(numero, text)
 	method = "post";
 	var form = document.createElement("form");
 	form.setAttribute("method", method);
-	form.setAttribute("action", "./comment.php");
+	form.setAttribute("action", "../PHP/comment.php");
 	for (var key in params)
 	{
 		if (params.hasOwnProperty(key)) {
@@ -173,7 +166,7 @@ function	postId(id)
 	method = "post";
 	var form = document.createElement("form");
 	form.setAttribute("method", method);
-	form.setAttribute("action", "./gallery.php");
+	form.setAttribute("action", "../PHP/gallery.php");
 	for (var key in params)
 	{
 		if (params.hasOwnProperty(key)) {

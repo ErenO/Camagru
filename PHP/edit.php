@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include "setup.php";
+	include ("../config/setup.php");
 
 	if(isset($_SESSION['id']))
 	{
@@ -17,9 +17,12 @@
 		if (isset($_POST['newmail']) AND !empty($_POST['newmail']) AND $_POST['newmail'] != $user['mail'])
 		{
 			$newmail = htmlspecialchars($_POST['newmail']);
-			$insertmail = $pdo->prepare("UPDATE membres SET mail = ? WHERE id = ?");
-			$insertmail->execute(array($newmail, $_SESSION['id']));
-			header('Location: profil.php?id='.$_SESSION['id']);
+			if (filter_var($newmail, FILTER_VALIDATE_EMAIL))
+			{
+				$insertmail = $pdo->prepare("UPDATE membres SET mail = ? WHERE id = ?");
+				$insertmail->execute(array($newmail, $_SESSION['id']));
+				header('Location: profil.php?id='.$_SESSION['id']);
+			}
 		}
 		if (isset($_FILES['avatar']) AND !empty($_FILES['avatar']['name']))
 		{
@@ -53,7 +56,7 @@
 			}
 			else
 			{
-				$msg = "Votre photo ne doit pas dépasser 2Mo";
+				$msg = "Votre photo ne doit pas dépasser 2 Megaoctets";
 			}
 			header('Location: profil.php?id='.$_SESSION['id']);
 		}
@@ -76,8 +79,8 @@
 	<html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="CSS/edit.css" />
-		<link rel="stylesheet" href="button.css" />
+		<link rel="stylesheet" href="../CSS/edit.css" />
+		<link rel="stylesheet" href="../CSS/button.css" />
 		<title>Le projet Camagru</title>
 
 	</head>
@@ -85,7 +88,7 @@
 		<a href="profil.php?id= <?php echo $_SESSION['id']; ?>" ><img width="50" src="images/home.png"/></a>
 		<div align="center">
 				<div align="center" id="div_edit">
-					<img src="images/retour.jpg" id="return_img" onClick="edit_back()"/>
+					<img src="../images/retour.jpg" id="return_img" onClick="edit_back()"/>
 					<h2>Edition de mon profil</h2>
 					<form method="POST" action="" enctype="multipart/form-data">
 						<br /><br />
@@ -97,8 +100,8 @@
 						<tr align="right" id="newpseudo">
 							<td>
 								<label>Pseudo :</label>
-							</td>
-							<td>
+							</td >
+							<td class="margin">
 								<input type="text" name="newpseudo" placeholder="Pseudo" value="<?php echo $user['pseudo']; ?>" class="input_edit"/><br /><br />
 							</td>
 						</tr>
@@ -106,7 +109,7 @@
 							<td>
 								<label>Mail :</label>
 							</td>
-							<td>
+							<td class="margin" >
 								<input type="text" name="newmail" placeholder="Mail" value="<?php echo $user['mail']; ?>" class="input_edit"/><br /><br />
 							</td>
 						</tr>
@@ -114,7 +117,7 @@
 							<td>
 								<label>Mot de passe :</label>
 							</td>
-							<td>
+							<td class="margin" >
 								<input type="password" name="newmdp1" placeholder="Mot de passe" class="input_edit"/><br /><br />
 							</td>
 						</tr>
@@ -122,7 +125,7 @@
 							<td>
 								<label>Confirmation - mot de passe :</label>
 							</td>
-							<td>
+							<td class="margin" >
 								<input type="password" name="newmdp2" placeholder="Confirmation du mot de passe" class="input_edit"/><br /><br />
 							</td>
 						</tr>
@@ -130,7 +133,7 @@
 							<td>
 								 <label>Avatar :</label>
 							 </td>
-							<td align="right">
+							<td class="margin" align="right">
 								<center>
 									<input type="file" name="avatar"  style=/> <br /> <br />
 								</center>
@@ -139,7 +142,7 @@
 						 <tr align="right" id="envoyer">
 							<td></td>
 							<td>
-								<input class="myButton" type="submit" value="Mettre à jour mon profil !" />
+								<input  type="submit" value="Mettre à jour mon profil !" />
 							</td>
 						</tr>
 						</form>
@@ -147,12 +150,13 @@
 				<?php if (isset($msg)) { echo $msg; } ?>
 			</div>
 		</div>
-		<script src="edit.js"></script>
+		<script src="../JS/edit.js"></script>
 	</body>
 	</html>
 		<?php
 		}
-		else {
+		else
+		{
 			header("Location: connexion.php");
-	}
+		}
 ?>

@@ -5,27 +5,17 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	border-radius:20px;
-	/*display:block;
-	margin-left:auto;
-	margin-right:auto;*/
-	/*box-shadow: 8px 8px 0px #101010;*/
-	/*align: center;*/
-	/*margin-top:20em;*/
 	color:white;
 	width: 300px;
 	height: 450px;
 	background-color: #DF514C;
 	border : 3px solid black;
-	/*line-height: 5em;*/
 }
 
 #link_connect
 {
 	display: block;
 	color: #DF514C;
-	/*position: absolute;*/
-	/*margin-top: 20px;*/
-	/*margin-left: 20px;*/
 	float:right;
 }
 
@@ -102,7 +92,11 @@ input[type=submit]
 	width:400px;
 	margin-top: 30px;
 	height: 100px;
-	/*background: red;*/
+}
+
+#connect
+{
+	text-decoration: none;
 }
 
 #text_info
@@ -113,29 +107,8 @@ input[type=submit]
 
 body
 {
-	/*background-image: url("paysage.jpeg");*/
 	background-color: #FFFFFF;
-	/*font-family: Impact, "Arial Black", Arial, Verdana, sans-serif;*/
 	font-family: 'Arial Black', Gadget, sans-serif;
 	font-size: small;
-	/*background-color: #FFFFFF;*/
 	color: #000000;
-	/*margin-top: 0px;*/
 }
-
-/*body
-{
-	position: absolute;
-	top: 30%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-
-	background-image: url("paysage.jpeg");
-	background-color: #cccccc;
-	font-family: Impact, "Arial Black", Arial, Verdana, sans-serif;
-	font-family: 'Arial Black', Gadget, sans-serif;
-	font-size: small;
-	background-color: #FFFFFF;
-	color: #000000;
-	margin-top: 0px;
-}*/

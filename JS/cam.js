@@ -53,17 +53,17 @@ window.addEventListener("DOMContentLoaded", function() {
 		numerofiltre--;
 		if (numerofiltre < 1)
 			numerofiltre = 7;
-		document.getElementById("filtre").src = "filtres/" + numerofiltre + ".png";
-		document.getElementById("filtre2").src = "filtres/" + numerofiltre + ".png";
-		document.getElementById("png").value = "filtres/" + numerofiltre + ".png";
+		document.getElementById("filtre").src = "../filtres/" + numerofiltre + ".png";
+		document.getElementById("filtre2").src = "../filtres/" + numerofiltre + ".png";
+		document.getElementById("png").value = "../filtres/" + numerofiltre + ".png";
 	});
 	document.getElementById("chevron_droit").addEventListener("click", function() {
 		numerofiltre++;
 		if (numerofiltre > 7)
 			numerofiltre = 1;
-		document.getElementById("filtre").src = "filtres/" + numerofiltre + ".png";
-		document.getElementById("filtre2").src = "filtres/" + numerofiltre + ".png";
-		document.getElementById("png").value = "filtres/" + numerofiltre + ".png";
+		document.getElementById("filtre").src = "../filtres/" + numerofiltre + ".png";
+		document.getElementById("filtre2").src = "../filtres/" + numerofiltre + ".png";
+		document.getElementById("png").value = "../filtres/" + numerofiltre + ".png";
 	});
 	document.getElementById("upload").onchange = function() {
 		var fileInput = document.getElementById("upload");
@@ -95,7 +95,7 @@ window.addEventListener("DOMContentLoaded", function() {
 function postthat()
 {
 	var	params = [];
-	img = canvas.toDataURL("image/png");
+	img = canvas.toDataURL("../filtre");
 	params["image"] = img;
 	params["png"] = document.getElementById('png').value;
 	params["png"] == "filtres/1.png" ? "" : params["png"];
@@ -108,7 +108,7 @@ function postthat()
 	{
 		var form = document.createElement("form");
 		form.setAttribute("method", method);
-		form.setAttribute("action", "./post.php");
+		form.setAttribute("action", "../PHP/post.php");
 		for (var key in params)
 		{
 			if (params.hasOwnProperty(key))
@@ -142,7 +142,7 @@ function postDelete(id)
 	method = "post";
 	var form = document.createElement("form");
 	form.setAttribute("method", method);
-	form.setAttribute("action", "./delete.php");
+	form.setAttribute("action", "../PHP/delete.php");
 	for (var key in params)
 	{
 		if (params.hasOwnProperty(key)) {

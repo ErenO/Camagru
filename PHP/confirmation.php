@@ -1,5 +1,5 @@
 <?php
-	include "setup.php";
+	include ("../config/setup.php");
 
 	if (isset($_GET['pseudo'], $_GET['key']) AND !empty($_GET['pseudo']) AND !empty($_GET['key']))
 	{

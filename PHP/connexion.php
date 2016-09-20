@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include "setup.php";
+	include ("../config/setup.php");
 
 	if (isset($_POST['formconnexion']))
 	{
@@ -33,11 +33,11 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="CSS/connexion.css" />
+		<link rel="stylesheet" href="../CSS/connexion.css" />
 		<title>Le projet Camagru</title>
 	</head>
 	<body>
-		<a href="index.php">Home</a>
+		<a href="index.php"><img src="../images/formulaire.png" width=40/></a>
 		<div align="center" id="div_connexion">
 			<h2>Connexion</h2>
 			<br /><br />
@@ -51,6 +51,7 @@
 			if (isset($_SESSION['erreur']))
 			{
 				echo '<font color="white">' . $_SESSION['erreur'] . "</font>";
+				$_SESSION['erreur'] = "";
 			}
 			?>
 		</div>

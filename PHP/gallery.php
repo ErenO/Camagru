@@ -9,7 +9,7 @@
 	}
 	require_once "header.php";
 	require_once "footer.html";
-	include ("setup.php");
+	include ("../config/setup.php");
 
 	$i = 0;
 	$reqvalid = $pdo->prepare('SELECT validate FROM membres WHERE id = ?');
@@ -19,11 +19,6 @@
 	{
 		$_SESSION['erreur'] = "Valide ton compte avant de te connecter !";
 		echo $_SESSION['erreur'];
-		// echo "<a onClick="">Renvoyer le mail de confirmation.</a>";
-		// $userinfo = $pdo->prepare('SELECT id FROM membres WHERE pseudo = ?');
-		// $userinfo->execute(array($pseudo));
-		// $user = $userinfo->fetch();
-		// send_mail($mail, $key, $user[0]);
 		exit ;
 	}
 	$requser = $pdo->prepare('SELECT * FROM membres');
@@ -37,9 +32,9 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="CSS/body.css" />
-		<link rel="stylesheet" href="CSS/gallery.css" />
-		<link rel="stylesheet" href="button.css"  />
+		<link rel="stylesheet" href="../CSS/body.css" />
+		<link rel="stylesheet" href="../CSS/gallery.css" />
+		<link rel="stylesheet" href="../CSS/button.css"  />
 		<title>Gallerie</title>
 	</head>
 	<body>
@@ -55,7 +50,7 @@
 				if ($_SESSION['id'] == $data['membre_id'])
 				{
 					echo "
-					<img class='cross_img' width=25 src='./images/cross.png' onClick='deleteImg(".$_SESSION['id'].", ".$data['membre_id'].", ".$data['id'].")'/>";
+					<img class='cross_img' width=25 src='../images/cross.png' onClick='deleteImg(".$_SESSION['id'].", ".$data['membre_id'].", ".$data['id'].")'/>";
 				}
 				echo "
 				<img class='photos_filtre' src='". $data["image"] ."' width=250 height=200 onClick='input_display(".$data['id'].")'/>'
@@ -91,7 +86,7 @@
 				<button id='btn".$data['id']."' class='btn' onClick='print_text(".$data['id'].")'>Envoyer</button>
 				</br>
 				<p class='coeur' id='coeur".$data['id']."' onClick='reply_click(".$_SESSION['id'].", ".$likes[0].", ".$data['id'].")'>
-				<img src='coeur.png' style='display:block'/> ".$likeAll[0]."
+				<img src='../images/coeur.png' style='display:block'/> ".$likeAll[0]."
 				</p>
 				</div>
 				</form>";
@@ -102,6 +97,6 @@
 				echo "<center><a href='cam.php' id='galButton' class='myButton'>Vous n'avez pas de photos. Veuillez en prendre une !</a></center>";
 			}
 		?>
-		<script src="gallery.js"></script>
+		<script src="../JS/gallery.js"></script>
 	</body>
 </html>

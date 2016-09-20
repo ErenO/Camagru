@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include ("setup.php");
+	include ("../config/setup.php");
 	include ("mail.php");
 
 	if (isset($_POST['comment']))

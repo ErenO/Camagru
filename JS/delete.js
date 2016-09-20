@@ -18,7 +18,7 @@ function postDelete(id)
 	method = "post";
 	var form = document.createElement("form");
 	form.setAttribute("method", method);
-	form.setAttribute("action", "./delete.php");
+	form.setAttribute("action", "../PHP/delete.php");
 
 	for (var key in params)
 	{

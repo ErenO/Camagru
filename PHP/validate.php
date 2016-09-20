@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include ("setup.php");
+	include ("../config/setup.php");
 
 	$i = 1;
 	$id = intval($_GET['id']);
@@ -8,7 +8,6 @@
 	$userKey = $pdo->prepare('SELECT confirmkey FROM membres WHERE id = ?');
 	$userKey->execute(array($id));
 	$valid = $userKey->fetch();
-	// echo $id."<br />".$valid[0]."<br />".$key;
 
 	if ($valid[0] == $key)
 	{

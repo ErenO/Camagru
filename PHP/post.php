@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require('setup.php');
+	include ("../config/setup.php");
 
 	if (!$_SESSION['loggued_on_user'])
 	{
@@ -8,11 +8,6 @@
 		header("Location: ./connexion.php");
 		exit;
 	}
-	// $requser = $pdo->prepare('SELECT * FROM membres WHERE id = ?');
-	// $requser->execute(array($_SESSION['id']));
-	// $userinfo = $requser->fetch();
-	// echo $userinfo['mail']."\n";
-	// echo $userinfo['pseudo']."\n";
 	$pic = explode(",", $_POST['image']);
 	if ($pic = base64_decode($pic[1])) {
 		$pic = imagecreatefromstring($pic);
@@ -36,9 +31,7 @@
 			imagecopy($pic, $filter, 0, 0, 0, 0, 640, 480);
 			ob_start();
 			imagepng($pic);
-			// read from buffer
 			$image = ob_get_contents();
-			// delete buffer
 			ob_end_clean();
 			$req = $pdo->prepare('INSERT INTO post (image, membre_id, liked) VALUES(:image, :membre_id, :liked)');
 			$tab = array(
@@ -47,8 +40,7 @@
 				'liked' => 0
 			);
 			$req->execute($tab);
-			// $_SESSION['message'] = "You successfully posted this pic";
-			// echo $_SESSION['message'];
+			$_SESSION['message'] = "Ta photo est bien enregistré !";
 		}
 		header("Location: ./cam.php");
 	}

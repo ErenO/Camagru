@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include ("setup.php");
+	include ("../config/setup.php");
 
 	if (!empty($_POST['delete_id']))
 	{

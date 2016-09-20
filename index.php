@@ -10,10 +10,10 @@
 	</head>
 	<body>
 		<div id="link_connect">
-			<a href="connexion.php">Connexion</a>
+			<a id="connect" href="PHP/connexion.php">Se connecter</a>
 		</div>
 		<div id="inscription_div" align="center">
-			<form method="POST" action="create.php">
+			<form method="POST" action="PHP/create.php">
 			<label id="top" for="pseudo">Pseudo :</label>
 			<input type="text" placeholder="Votre pseudo" id="pseudo" name="pseudo" value="<?php if (isset($pseudo)) { echo $pseudo; } ?>" class="input_inscription"/>
 			<label for="mail">Mail :</label>
@@ -32,7 +32,8 @@
 			<center>
 				<p id="text_info">
 					<?php
-					if (isset($_SESSION['erreur'])) {
+					if (isset($_SESSION['erreur']))
+					{
 						echo '<font color="red">'.$_SESSION['erreur']."</font>";
 						$_SESSION['erreur'] = '';
 					}

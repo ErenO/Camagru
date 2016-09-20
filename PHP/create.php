@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include "setup.php";
+	include ("../config/setup.php");
 	include "mail.php";
 
 	if (isset($_POST['forminscription']))
@@ -64,7 +64,16 @@
 											$userinfo = $pdo->prepare('SELECT id FROM membres WHERE pseudo = ?');
 											$userinfo->execute(array($pseudo));
 											$user = $userinfo->fetch();
-											send_mail($mail, $key, $user[0]);
+											$id = $user[0];
+											$to = $mail;
+											$subject = 'Activer votre compte';
+											$message = "Pour valider ton compte. Clique <a href='http://localhost:8080/Camagru/validate.php?id=".$id."&key=".$key."'>ici.</a>";
+											$headers  = 'MIME-Version: 1.0' . "\r\n";
+											$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+											$headers .= 'From: eozdek@student.42.fr' . "\r\n" .
+														'Reply-To: eozdek@student.42.fr' . "\r\n" .
+														'X-Mailer: PHP/' . phpversion();
+											mail($to, $subject, $message, $headers);
 											$_SESSION['erreur'] = "Votre compte a bien été créé ! <a href=\"connexion.php\">Me connecter</a>";
 										}
 										else

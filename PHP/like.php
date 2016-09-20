@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include ("setup.php");
+	include ("../config/setup.php");
 
 	if (!$_SESSION['loggued_on_user'])
 	{
