@@ -37,7 +37,7 @@
 		<title>Le projet Camagru</title>
 	</head>
 	<body>
-		<a href="index.php"><img src="../images/formulaire.png" width=40/></a>
+		<a href="../index.php"><img src="../images/formulaire.png" width=40/></a>
 		<div align="center" id="div_connexion">
 			<h2>Connexion</h2>
 			<br /><br />

@@ -82,7 +82,7 @@
 					while ($data = $requser->fetch())
 					{
 						echo "<div class='photos_div'>
-							<img class='cross' width=25 src='./images/cross.png' onClick='deleteImg(".$data['id'].")'/>
+							<img class='cross' width=25 src='../images/cross.png' onClick='deleteImg(".$data['id'].")'/>
 							<img src='" . $data["image"] . "' width=250 height=200/>'
 							</div>";
 					}

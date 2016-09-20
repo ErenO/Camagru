@@ -1,14 +1,9 @@
 <?php
-// include "database.php";
-
-$DB_DSN = 'mysql:host=localhost;charset=utf8';
-$DB_USER = 'root';
-$DB_PASSWORD = 'root';
+include "database.php";
 
 try
 {
 	$pdo = new PDO('mysql:host=localhost;charset=utf8', 'root', 'root');
-	// $pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 }
 catch (PDOException $e)
@@ -30,7 +25,6 @@ try
 		`validate` INT,
 		`avatar` TEXT NOT NULL,
 		`confirm` INT NULL)");
-		// `avatar` LONGBLOB ,
 	$pdo->exec("CREATE TABLE IF NOT EXISTS `post` (
 		`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 		`titre` TEXT,

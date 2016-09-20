@@ -85,7 +85,7 @@
 
 	</head>
 	<body>
-		<a href="profil.php?id= <?php echo $_SESSION['id']; ?>" ><img width="50" src="images/home.png"/></a>
+		<a href="profil.php?id= <?php echo $_SESSION['id']; ?>" ><img width="50" src="../images/home.png"/></a>
 		<div align="center">
 				<div align="center" id="div_edit">
 					<img src="../images/retour.jpg" id="return_img" onClick="edit_back()"/>
