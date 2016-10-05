@@ -14,7 +14,7 @@
 
 	function send_comment($to, $pseudo)
 	{
-		$subject="On a commenté ta photo";
+		$subject = "On a commenté ta photo";
 		$message = 'Tu viens de recevoir un commentaire de '. $pseudo .' sur ta photo !';
 		$headers = 'From: eozdek@student.42.fr' . "\r\n" .
 		'Reply-To: eozdek@student.42.fr' . "\r\n" .

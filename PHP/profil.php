@@ -45,7 +45,8 @@
 					if (isset($userinfo['avatar']))
 					{
 						?>
-						<img width="100" height="100" src="../membres/avatar/<?php echo $userinfo['avatar'] ?> "/>
+						<img width="100" height="100" src="../membres/avatar/<?php echo $userinfo['avatar']; ?> "/>
+						<?php echo $userinfo['avatar']; ?>
 						<?php
 					}
 					?>
