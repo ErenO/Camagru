@@ -14,22 +14,22 @@
 		$indexMaj = 0;
 		$indexMin = 0;
 		$indexNum = 0;
-		while ($mdp[$i])
-		{
-			if ($mdp[$i] >= 'a' && $mdp[$i] <= 'z')
-			{
-				$indexMin += 1;
-			}
-			else if ($mdp[$i] >= 'A' && $mdp[$i] <= 'Z')
-			{
-				$indexMaj += 1;
-			}
-			else if ($mdp[$i] >= '0' && $mdp[$i] <= '9')
-			{
-				$indexNum += 1;
-			}
-			$i += 1;
-		}
+		// while ($mdp[$i])
+		// {
+		// 	if ($mdp[$i] >= 'a' && $mdp[$i] <= 'z')
+		// 	{
+		// 		$indexMin += 1;
+		// 	}
+		// 	else if ($mdp[$i] >= 'A' && $mdp[$i] <= 'Z')
+		// 	{
+		// 		$indexMaj += 1;
+		// 	}
+		// 	else if ($mdp[$i] >= '0' && $mdp[$i] <= '9')
+		// 	{
+		// 		$indexNum += 1;
+		// 	}
+		// 	$i += 1;
+		// }
 		$mdpLength = strlen($mdp);
 		$mdp = sha1($_POST['mdp']);
 		$mdp2 = sha1($_POST['mdp2']);
@@ -39,9 +39,9 @@
 			$reqverif = $pdo->prepare('SELECT * FROM membres WHERE pseudo = ?');
 			$reqverif->execute(array($pseudo));
 			$pseudoVerif = $reqverif->rowCount();
-			if ($mdpLength > 5)
+			if ($mdpLength > 5 && $mdpLength < 256)
 			{
-				if ($indexNum > 0 && $indexMin > 0 && $indexMaj > 0)
+				if (preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,255}$/', $mdp))
 				{
 					if ($pseudoVerif == 0)
 					{
@@ -113,7 +113,7 @@
 			}
 			else
 			{
-				$_SESSION['erreur'] = "Votre mot de passe doit contenir au minimum 6 caractères";
+				$_SESSION['erreur'] = "Votre mot de passe doit contenir au minimum 6 caractères et maximum 255";
 			}
 		}
 		else

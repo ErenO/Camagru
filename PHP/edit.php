@@ -33,7 +33,7 @@
 				$uploadExt = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'), 1));
 				if (in_array($uploadExt, $validExt))
 				{
-					$path = "membres/avatar/" . $_SESSION['id'] . "." . $uploadExt;
+					$path = "../membres/avatar/" . $_SESSION['id'] . "." . $uploadExt;
 					$result = move_uploaded_file($_FILES['avatar']['tmp_name'], $path);
 					if ($result)
 					{

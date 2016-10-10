@@ -47,6 +47,8 @@
 				<br /><br />
 				<input type="submit" name="formconnexion" value="Connexion" />
 			</form>
+			<a href="reset_password.php" style="color:white">Mot de passe oublié ?</a>
+		</br>
 			<?php
 			if (isset($_SESSION['erreur']))
 			{

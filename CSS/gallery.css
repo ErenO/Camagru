@@ -41,6 +41,10 @@
 	margin-left: 20px;
 }
 
+.photos_filtre:hover{
+	cursor:pointer;
+}
+
 .photos_filtre
 {
 	margin : 20px;
