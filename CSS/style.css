@@ -35,7 +35,15 @@ label, input
 
 #top
 {
-	margin-top: 40px;
+	margin-top: 20px;
+}
+
+#connect
+{
+	float:right;
+	margin-left: 33%;
+	margin-right: 33%;
+	color:white;
 }
 
 #submit

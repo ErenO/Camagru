@@ -73,7 +73,7 @@ window.addEventListener("DOMContentLoaded", function() {
 			ext = ext[ext.length - 1];
 			if (ext != 'png' && ext != 'jpg' && ext != 'jpeg') {
 				document.getElementById("upload").value = "";
-				alert("You must choose png, jpg or jpeg file only");
+				alert("Vous ne pouvez avoir que des images png, jpg ou jpeg");
 			} else {
 				canvas.width = 640;
 				canvas.height = 480;
@@ -100,10 +100,10 @@ function postthat()
 	params["png"] = document.getElementById('png').value;
 	params["png"] == "filtres/1.png" ? "" : params["png"];
 	method = "post";
-	if (document.getElementById("snap_photo").value != "ok")
-	{
-		params["image"] = "";
-	}
+	// if (document.getElementById("snap_photo").value != "ok")
+	// {
+	// 	params["image"] = "";
+	// }
 	if (params["image"] && params["png"])
 	{
 		var form = document.createElement("form");

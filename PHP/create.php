@@ -14,25 +14,7 @@
 		$indexMaj = 0;
 		$indexMin = 0;
 		$indexNum = 0;
-		// while ($mdp[$i])
-		// {
-		// 	if ($mdp[$i] >= 'a' && $mdp[$i] <= 'z')
-		// 	{
-		// 		$indexMin += 1;
-		// 	}
-		// 	else if ($mdp[$i] >= 'A' && $mdp[$i] <= 'Z')
-		// 	{
-		// 		$indexMaj += 1;
-		// 	}
-		// 	else if ($mdp[$i] >= '0' && $mdp[$i] <= '9')
-		// 	{
-		// 		$indexNum += 1;
-		// 	}
-		// 	$i += 1;
-		// }
 		$mdpLength = strlen($mdp);
-		$mdp = sha1($_POST['mdp']);
-		$mdp2 = sha1($_POST['mdp2']);
 		if (!empty($_POST['pseudo']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2']))
 		{
 			$pseudolength = strlen($pseudo);
@@ -43,6 +25,8 @@
 			{
 				if (preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,255}$/', $mdp))
 				{
+					$mdp = sha1($_POST['mdp']);
+					$mdp2 = sha1($_POST['mdp2']);
 					if ($pseudoVerif == 0)
 					{
 						if ($pseudolength >= 2 && $pseudolength <= 255)

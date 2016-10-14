@@ -1,18 +1,3 @@
-/*header
-{
-	background: url('images/separateur.png') repeat-x bottom;
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-end;
-	padding-top: 20px;
-}*/
-
-/*@font-face
-{
-	font-family: "open-sans";
-	src: url("OpenSans-Regular.ttf");
-}*/
-
 
 body
 {
@@ -63,7 +48,6 @@ nav ul
 nav li
 {
 	font-family: "open-sans";
-	/*margin-right: 15px;*/
 }
 
 nav a
@@ -78,10 +62,4 @@ nav a:hover
 {
 	color: #DF514C;
 	background-color: #C6EBFD;
-	/*border-bottom: 3px solid #760001;*/
-}
-
-#disconnect
-{
-	/*margin-left: 5em;*/
 }

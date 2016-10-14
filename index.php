@@ -9,9 +9,6 @@
 		<title>Le projet Camagru</title>
 	</head>
 	<body>
-		<div id="link_connect">
-			<a id="connect" href="PHP/connexion.php">Se connecter</a>
-		</div>
 		<div id="inscription_div" align="center">
 			<form method="POST" action="PHP/create.php">
 			<label id="top" for="pseudo">Pseudo :</label>
@@ -27,6 +24,7 @@
 			<br />
 			<input type="submit" name="forminscription" value="Inscription" id="submit"/>
 			</form>
+			<a id="connect" href="PHP/connexion.php" id="connect">Se connecter</a>
 		</div>
 		<div id="message_inscription">
 			<center>

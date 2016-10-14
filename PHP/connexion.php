@@ -38,6 +38,7 @@
 	</head>
 	<body>
 		<a href="../index.php"><img src="../images/formulaire.png" width=40/></a>
+		<a href="../PHP/gallery.php"><img src="../images/image.png" width=40/></a>
 		<div align="center" id="div_connexion">
 			<h2>Connexion</h2>
 			<br /><br />

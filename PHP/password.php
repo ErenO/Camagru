@@ -5,7 +5,19 @@
 		$requser = $pdo->prepare("SELECT * FROM membres WHERE id = ?");
 		$requser->execute(array($_SESSION['id']));
 		$user = $requser->fetch();
-		$id = intval($_GET['id']);
+		$id = htmlspecialchars($_GET['id']);
+		$reqid = $pdo->prepare("SELECT id FROM membres");
+		$reqid->execute();
+		while ($id_user = $reqid->fetch())
+		{
+			$id_verif = sha1($id_user[0]);
+			if ($id_verif == $id)
+			{
+				$id = $id_user[0];
+				break ;
+			}
+		}
+		$id = intval($id);
 		if (isset($_POST['newmdp1']) AND !empty($_POST['newmdp1']) AND isset($_POST['newmdp2']) AND !empty($_POST['newmdp2']))
 		{
 			$mdp = $_POST['newmdp1'];

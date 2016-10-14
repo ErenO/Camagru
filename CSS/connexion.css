@@ -2,20 +2,6 @@
 {
 	border-radiu:12px;
 }
-/*body
-{
-	position: absolute;
-	top: 30%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-image: url("paysage.jpeg");
-	background-color: #cccccc;
-	font-family: Impact, "Arial Black", Arial, Verdana, sans-serif;
-	font-family: 'Arial Black', Gadget, sans-serif;
-	font-size: small;
-	background-color: #FFFFFF;
-	color: #000000;
-}*/
 
 body
 {
@@ -23,12 +9,9 @@ body
 	top: 30%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	/*background-image: url("paysage.jpeg");*/
 	background-color: #FFFFFF;
-	/*font-family: Impact, "Arial Black", Arial, Verdana, sans-serif;*/
 	font-family: 'Arial Black', Gadget, sans-serif;
 	font-size: small;
-	/*background-color: #FFFFFF;*/
 	color: #000000;
 	margin-top: 0px;
 }
@@ -45,7 +28,7 @@ body
 
 input[type=submit]
 {
-	background-color: #4CAF50; /* Green */
+	background-color: #4CAF50;
 	border: none;
 	color: white;
 	padding: 10px 32px;

@@ -8,15 +8,15 @@
 		$maj = ctype_lower($mdp);
 		$num = ctype_digit($mdp);
 		$mail = htmlspecialchars($_POST['mail']);
-		//PROBLEEEEEMEMEMEMME1!!!!!! protection mail
-			// $id = intval($_GET['id']);
+		if (filter_var($mail, FILTER_VALIDATE_EMAIL))
+		{
 			$reqmail = $pdo->prepare('SELECT id FROM membres WHERE mail = ?');
 			$reqmail->execute(array($_POST['mail']));
 			$id = $reqmail->fetch();
-			// echo $id[0];
 			$to = $mail;
+			$id2 = sha1($id[0]);
 			$subject = 'Réinitialiser ton mot de passe !';
-			$message = "Pour changer ton mot de passe. Clique <a href='http://localhost:8080/Camagru/PHP/password.php?id=".$id[0]."'>ici.</a>";
+			$message = "Pour changer ton mot de passe. Clique <a href='http://localhost:8080/Camagru/PHP/password.php?id=".$id2."'>ici.</a>";
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			$headers .= 'From: eozdek@student.42.fr' . "\r\n" .
@@ -24,6 +24,7 @@
 						'X-Mailer: PHP/' . phpversion();
 			mail($to, $subject, $message, $headers);
 			$_SESSION['erreur'] = "mail envoyé !";
+		}
 	}
 ?>
 

@@ -33,11 +33,10 @@
 			imagepng($pic);
 			$image = ob_get_contents();
 			ob_end_clean();
-			$req = $pdo->prepare('INSERT INTO post (image, membre_id, liked) VALUES(:image, :membre_id, :liked)');
+			$req = $pdo->prepare('INSERT INTO post (image, membre_id) VALUES(:image, :membre_id)');
 			$tab = array(
 				'image' => "data:image/png;base64,".base64_encode($image),
-				'membre_id' => $_SESSION['id'],
-				'liked' => 0
+				'membre_id' => $_SESSION['id']
 			);
 			$req->execute($tab);
 			$_SESSION['message'] = "Ta photo est bien enregistré !";

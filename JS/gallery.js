@@ -67,35 +67,38 @@ function postDelete(id)
 
 function input_display(id)
 {
-	var div_id = "div" + String(id);
-	var coeur_id = "coeur" + String(id);
-	var link_id = "link" + String(id);
-	var btn_id = "btn" + String(id);
-	var text_id = "text" + String(id);
-	var div_id = "div" + String(id);
-	var photo_id = "img" + String(id);
-	var comment_id = "comment" + String(id);
-	var hide_id = "hide" + String(id);
-	var coeur_disp = document.getElementById(coeur_id).style.display;
-	var elem_none = "photo_info" + id;
-	var elements = document.getElementsByClassName('photo_info');
-	if (coeur_disp != 'block')
+	if (id != 0)
 	{
-		document.getElementById(div_id).style.float = 'none';
-		document.getElementById(coeur_id).style.display = 'block';
-		document.getElementById(btn_id).style.display = 'block';
-		document.getElementById(text_id).style.display = 'block';
-		document.getElementById(link_id).style.display = 'block';
-	}
-	else
-	{
-		document.getElementById(hide_id).style.display = 'none';
-		document.getElementById(comment_id).style.display = 'none';
-		document.getElementById(div_id).style.float = 'left';
-		document.getElementById(coeur_id).style.display = 'none';
-		document.getElementById(btn_id).style.display = 'none';
-		document.getElementById(text_id).style.display = 'none';
-		document.getElementById(link_id).style.display = 'none';
+		var div_id = "div" + String(id);
+		var coeur_id = "coeur" + String(id);
+		var link_id = "link" + String(id);
+		var btn_id = "btn" + String(id);
+		var text_id = "text" + String(id);
+		var div_id = "div" + String(id);
+		var photo_id = "img" + String(id);
+		var comment_id = "comment" + String(id);
+		var hide_id = "hide" + String(id);
+		var coeur_disp = document.getElementById(coeur_id).style.display;
+		var elem_none = "photo_info" + id;
+		var elements = document.getElementsByClassName('photo_info');
+		if (coeur_disp != 'block')
+		{
+			document.getElementById(div_id).style.float = 'none';
+			document.getElementById(coeur_id).style.display = 'block';
+			document.getElementById(btn_id).style.display = 'block';
+			document.getElementById(text_id).style.display = 'block';
+			document.getElementById(link_id).style.display = 'block';
+		}
+		else
+		{
+			document.getElementById(hide_id).style.display = 'none';
+			document.getElementById(comment_id).style.display = 'none';
+			document.getElementById(div_id).style.float = 'left';
+			document.getElementById(coeur_id).style.display = 'none';
+			document.getElementById(btn_id).style.display = 'none';
+			document.getElementById(text_id).style.display = 'none';
+			document.getElementById(link_id).style.display = 'none';
+		}
 	}
 }
 

@@ -1,13 +1,7 @@
-
 #img_photo
 {
 	width : 18px;
 	height : 18px;
-}
-
-h2
-{
-	font-family: "open-sans";
 }
 
 #video_none
@@ -157,15 +151,6 @@ h2
 	#cam
 	{
 		display: inline-block;
-	}
-	@font-face
-	{
-		font-family: "open-sans";
-		src: url("OpenSans-Regular.ttf");
-	}
-	h2
-	{
-		font-family : open-sans, Arial;
 	}
 	.photos_div
 	{

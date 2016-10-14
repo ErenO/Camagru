@@ -34,8 +34,8 @@
 	<html>
 		<head>
 			<meta charset="utf-8" />
-			<link rel="stylesheet" href="CSS/body.css" />
-			<link rel="stylesheet" href="CSS/profil.css" />
+			<link rel="stylesheet" href="../CSS/body.css" />
+			<link rel="stylesheet" href="../CSS/profil.css" />
 			<title>Le projet Camagru</title>
 		</head>
 		<body>
