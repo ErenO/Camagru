@@ -2,51 +2,48 @@
 	session_start();
 	include ("../config/setup.php");
 
-		$requser = $pdo->prepare("SELECT * FROM membres WHERE id = ?");
-		$requser->execute(array($_SESSION['id']));
-		$user = $requser->fetch();
-		$id = htmlspecialchars($_GET['id']);
-		$reqid = $pdo->prepare("SELECT id FROM membres");
-		$reqid->execute();
-		while ($id_user = $reqid->fetch())
+	$mail = htmlspecialchars($_GET['mail']);
+	$reqid = $pdo->prepare("SELECT mail FROM membres");
+	$reqid->execute();
+	$i = 0;
+	while ($mail_user = $reqid->fetch())
+	{
+		$mail_verif = sha1($mail_user[0]);
+		if ($mail_verif == $mail)
 		{
-			$id_verif = sha1($id_user[0]);
-			if ($id_verif == $id)
-			{
-				$id = $id_user[0];
-				break ;
-			}
+			$i = 1;
+			$mail = $mail_user[0];
+			break ;
 		}
-		$id = intval($id);
-		if (isset($_POST['newmdp1']) AND !empty($_POST['newmdp1']) AND isset($_POST['newmdp2']) AND !empty($_POST['newmdp2']))
+	}
+	if (isset($_POST['newmdp1']) AND !empty($_POST['newmdp1']) AND isset($_POST['newmdp2']) AND !empty($_POST['newmdp2']))
+	{
+		$mdp = $_POST['newmdp1'];
+		if (preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,255}$/', $mdp))
 		{
-			$mdp = $_POST['newmdp1'];
-			if (preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,255}$/', $mdp))
+			if ($i)
 			{
-				if ($id)
+				$mdp1 = sha1($_POST['newmdp1']);
+				$mdp2 = sha1($_POST['newmdp2']);
+				if ($mdp1 == $mdp2)
 				{
-					$mdp1 = sha1($_POST['newmdp1']);
-					$mdp2 = sha1($_POST['newmdp2']);
-					if ($mdp1 == $mdp2)
-					{
-						$insertmdp = $pdo->prepare("UPDATE membres SET motdepasse = ? WHERE id = ?");
-						$insertmdp->execute(array($mdp1, $id));
-						// header('Location: connexion.php?id='.$_SESSION['id']);
-						$_SESSION['erreur'] = 'mot de passe changé !';
-						header("Location: connexion.php");
-					}
-					else
-					{
-						$msg = "Vos deux mdp ne correspondent pas !";
-					}
+					$insertmdp = $pdo->prepare("UPDATE membres SET motdepasse = ? WHERE mail = ?");
+					$insertmdp->execute(array($mdp1, $mail));
+					$_SESSION['erreur'] = 'mot de passe changé !';
+					header("Location: connexion.php");
+				}
+				else
+				{
+					$msg = "Vos deux mdp ne correspondent pas !";
 				}
 			}
-			else
-			{
-				$_SESSION['erreur'] = "le mot de passe doit contenir un chiffre, une minuscule, une majuscule de 6 caractères !";
-			}
 		}
-	?>
+		else
+		{
+			$_SESSION['erreur'] = "Votre mot de passe doit contenir une minuscule, une majuscule, un chiffre et 6 caractères au minimum";
+		}
+	}
+?>
 	<html>
 	<head>
 		<meta charset="utf-8" />

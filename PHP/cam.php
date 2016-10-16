@@ -1,5 +1,4 @@
 <?php
-
 	session_start();
 
 	if (!$_SESSION['loggued_on_user'])
@@ -21,7 +20,6 @@
 		echo $_SESSION['erreur'];
 		exit ;
 	}
-
 	if (isset($_GET['id']) AND $_GET['id'] > 0)
 	{
 		$getid = intval($_GET['id']);

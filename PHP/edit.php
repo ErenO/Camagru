@@ -60,19 +60,19 @@
 			}
 			header('Location: profil.php?id='.$_SESSION['id']);
 		}
-		if (isset($_POST['newmdp1']) AND !empty($_POST['newmdp1']) AND isset($_POST['newmdp2']) AND !empty($_POST['newmdp2']))
+		if (isset($_POST['newmdp1']) AND !empty($_POST['newmdp1']))
 		{
-			$mdp1 = sha1($_POST['newmdp1']);
-			$mdp2 = sha1($_POST['newmdp2']);
-			if ($mdp1 == $mdp2)
+			$mdp1 = htmlspecialchars($_POST['newmdp1']);
+			if (preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,255}$/', $mdp1))
 			{
+				$mdp1 = sha1($_POST['newmdp1']);
 				$insertmdp = $pdo->prepare("UPDATE membres SET motdepasse = ? WHERE id = ?");
 				$insertmdp->execute(array($mdp1, $_SESSION['id']));
 				header('Location: profil.php?id='.$_SESSION['id']);
 			}
 			else
 			{
-				$msg = "Vos deux mdp ne correspondent pas !";
+				$_SESSION['erreur'] = "Votre mot de passe doit contenir une minuscule, une majuscule, un chiffre et 6 caractères au minimum";
 			}
 		}
 	?>

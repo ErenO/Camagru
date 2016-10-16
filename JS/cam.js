@@ -100,10 +100,6 @@ function postthat()
 	params["png"] = document.getElementById('png').value;
 	params["png"] == "filtres/1.png" ? "" : params["png"];
 	method = "post";
-	// if (document.getElementById("snap_photo").value != "ok")
-	// {
-	// 	params["image"] = "";
-	// }
 	if (params["image"] && params["png"])
 	{
 		var form = document.createElement("form");
